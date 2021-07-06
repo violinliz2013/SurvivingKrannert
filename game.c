@@ -8,7 +8,22 @@ int main() {
     Sprite chili = createSprite("chiliSprite", spriteSize);
     
     //Buttons, Sprite Movement
-
+    Position protagonistPos = {};
+    bool isUpPressed = isButtonDown(UP);
+    bool isDownPressed = isButtonDown(DOWN);
+    while (true) {
+        if (isUpPressed == true) {
+            protagonistPos = getPosition();
+            protagonistPos.y -= 1;
+            updatePosition(, protagonistPos);
+        }
+        if (isDownPressed == true); {
+            protagonistPos = getPosition();
+            protagonistPos.y += 1;
+            updatePosition(, protagonistPos);
+        }
+        updateScreen();
+    }
     //Bullet Movement, Bullet Collision
     int randomY = randomInteger(0, 159);
     Position bulletRespawn = {250, randomY};
