@@ -3,6 +3,7 @@
 int main() {
 
     //Backgrounds, Sprites, Gifs
+    Position origin = {0, 0};
     Size spriteSize = {16, 16};
     Sprite cherry = createSprite("cherrySprite", spriteSize);
     Sprite chili = createSprite("chiliSprite", spriteSize);
@@ -11,8 +12,8 @@ int main() {
     Position protagonistPos = {};
     bool isUpPressed = isButtonDown(UP);
     bool isDownPressed = isButtonDown(DOWN);
-    bool gameStart = isSpriteHidden();
-    while (gameStart == false) {
+    bool gameStop = isSpriteHidden();
+    while (gameStop == false) {
         if (isUpPressed == true) {
             protagonistPos = getPosition();
             protagonistPos.y -= 1;
@@ -26,7 +27,7 @@ int main() {
         updateScreen();
     }
     //Bullet Movement, Bullet Collision
-    int randomY = randomInteger(0, 159);
+    int randomY = randomInteger(0, 120);
     Position bulletRespawn = {250, randomY};
     Position cherryPos = updatePosition(cherry, bulletRespawn);
     Position chiliPos = updatePosition(chili, bulletRespawn);
@@ -34,7 +35,7 @@ int main() {
     Position bullet4Pos = updatePosition(, bulletRespawn);
     Position bullet5Pos = updatePosition(, bulletRespawn);
     
-    while (gameStart == false) {
+    while (gameStop == false) {
         cherryPos = getPosition(cherry);
         cherryPos.x -= 5;
         updatePosition(cherry, cherryPos);
@@ -54,7 +55,7 @@ int main() {
     }
     
     bool bulletCollision1 = checkCollisionSprite(, cherry);
-    while (gameStart == false) {
+    while (gameStop == false) {
         if (bulletCollision1 == true) {
             hideSprite(cherry);
             wait(1);
@@ -90,5 +91,30 @@ int main() {
             updatePosition(, bulletRespawn);
         }
         updateScreen();
+    }
+
+    while (gameStop == false) {
+        if (cherryPos.x <= -40) {
+            updatePosition(cherry, bulletRespawn);
+        }
+        if (chiliPos.x <= -40) {
+            updatePosition(chili, bulletRespawn);
+        }
+        if (bullet3Pos.x <= -40) {
+            updatePosition(, bulletRespawn);
+        }
+        if (bullet4Pos.x <= -40) {
+            updatePosition(, bulletRespawn);
+        }
+        if (bullet5Pos.x <= -40) {
+            updatePosition(, bulletRespawn);
+        }
+    }
+    //Pause Menu Code
+    bool isStartPressed = wasButtonPressed(START);
+    if (isStartPressed == true) {
+        drawBackground(, origin);
+        hideSprite();
+
     }
 }
