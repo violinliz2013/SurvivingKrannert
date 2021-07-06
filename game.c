@@ -3,24 +3,27 @@
 int main() {
 
     //Backgrounds, Sprites, Gifs
-
+    Size spriteSize = {16, 16};
+    Sprite cherry = createSprite("cherrySprite", spriteSize);
+    Sprite chili = createSprite("chiliSprite", spriteSize);
+    
     //Buttons, Sprite Movement
 
     //Bullet Movement, Bullet Collision
     int randomY = randomInteger(0, 159);
     Position bulletRespawn = {250, randomY};
-    Position bullet1Pos = updatePosition(, bulletRespawn);
-    Position bullet2Pos = updatePosition(, bulletRespawn);
+    Position cherryPos = updatePosition(cherry, bulletRespawn);
+    Position chiliPos = updatePosition(chili, bulletRespawn);
     Position bullet3Pos = updatePosition(, bulletRespawn);
     Position bullet4Pos = updatePosition(, bulletRespawn);
     Position bullet5Pos = updatePosition(, bulletRespawn);
     while (true) {
-        bullet1Pos = getPosition();
-        bullet1Pos.x -= 1;
-        updatePosition(, bullet1Pos);
-        bullet2Pos = getPosition();
-        bullet2Pos.x -= 1;
-        updatePosition(, bullet2Pos);
+        cherryPos = getPosition(cherry);
+        cherryPos.x -= 1;
+        updatePosition(cherry, cherryPos);
+        chiliPos = getPosition(chili);
+        chiliPos.x -= 1;
+        updatePosition(chili, chiliPos);
         bullet3Pos = getPosition();
         bullet3Pos.x -= 1;
         updatePosition(, bullet3Pos);
@@ -31,20 +34,20 @@ int main() {
         bullet5Pos.x -= 1;
         updatePosition(, bullet5Pos);
         
-        bool bulletCollision1 = checkCollisionSprite();
+        bool bulletCollision1 = checkCollisionSprite(, cherry);
         if (bulletCollision1 == true) {
-            hideSprite();
+            hideSprite(cherry);
             wait(1);
-            showSprite();
-            updatePosition(, bulletRespawn);
+            showSprite(cherry);
+            updatePosition(cherry, bulletRespawn);
             updateScreen();
         }
-        bool bulletCollision2 = checkCollisionSprite();
+        bool bulletCollision2 = checkCollisionSprite(chili);
         if (bulletCollision2 == true) {
-            hideSprite();
+            hideSprite(chili);
             wait(1);
-            showSprite();
-            updatePosition(, bulletRespawn);
+            showSprite(chili);
+            updatePosition(chili, bulletRespawn);
             updateScreen();
         }
         bool bulletCollision3 = checkCollisionSprite();
