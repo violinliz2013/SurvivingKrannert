@@ -2,6 +2,9 @@
 
 int main()
 {
+    //Sound
+    Sound music = createSound("oldvideogamemusic");
+    playSOund(music, true);
 
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
@@ -15,8 +18,13 @@ int main()
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
-    Sprite cherry = createSprite("cherrySprite", spriteSize);
-    Sprite chili = createSprite("chiliSprite", spriteSize);
+    Sprite cherry = createSprite("realcherry", spriteSize);
+    Sprite chili = createSprite("realchili", spriteSize);
+    Sprite plum = createSprite("plum");
+    Sprite carrot = createSprite("realcarrot");
+    Sprite watermelon = createSprite("watermelon");
+    Sprite mike = createSprite("mikesprite");
+    Sprite bob = createSprite("bob");
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
 
