@@ -1,41 +1,66 @@
 #include <gbalib.h>
 
-int main() {
+int main()
+{
 
-    //Backgrounds, Sprites, Gifs
+    //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
+    Position text1Pos = {110, 20};
+    Position text2Pos = {40, 140};
+    Position box1Pos = {105, 15};
+    Position box2Pos = {35, 135};
+    Position ts1Pos = {60, 20};
+    Position ts2Pos = {65, 140};
     Size spriteSize = {16, 16};
+    Size box1Size = {30, 17};
+    Size box2Size = {170, 17};
+    Size text1Size = {200, 17};
     Sprite cherry = createSprite("cherrySprite", spriteSize);
     Sprite chili = createSprite("chiliSprite", spriteSize);
-    
+    Color white = createColor(255, 255, 255);
+    Color black = createColor(0, 0, 0);
+
+    //TitleScreen
+    drawBackground("titleScreen", origin);
+    wait(2);
+    animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
+    wait(2);
+    animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
+
     //Buttons, Sprite Movement
     Position protagonistPos = {};
     bool isUpPressed = isButtonDown(UP);
     bool isDownPressed = isButtonDown(DOWN);
     bool gameStop = isSpriteHidden();
-    while (gameStop == false) {
-        if (isUpPressed == true) {
+    while (gameStop == false)
+    {
+        if (isUpPressed == true)
+        {
             protagonistPos = getPosition();
             protagonistPos.y -= 1;
             updatePosition(, protagonistPos);
         }
-        if (isDownPressed == true); {
+        if (isDownPressed == true)
+            ;
+        {
             protagonistPos = getPosition();
             protagonistPos.y += 1;
             updatePosition(, protagonistPos);
         }
         updateScreen();
     }
+
     //Bullet Movement, Bullet Collision
     int randomY = randomInteger(0, 120);
     Position bulletRespawn = {250, randomY};
-    Position cherryPos = updatePosition(cherry, bulletRespawn);
-    Position chiliPos = updatePosition(chili, bulletRespawn);
-    Position bullet3Pos = updatePosition(, bulletRespawn);
-    Position bullet4Pos = updatePosition(, bulletRespawn);
-    Position bullet5Pos = updatePosition(, bulletRespawn);
-    
-    while (gameStop == false) {
+    Position cherryPos = bulletRespawn;
+    Position chiliPos = bulletRespawn;
+    Position bullet3Pos = bulletRespawn;
+    Position bullet4Pos = bulletRespawn;
+    Position bullet5Pos = bulletRespawn;
+
+    while (gameStop == false)
+    {
         cherryPos = getPosition(cherry);
         cherryPos.x -= 5;
         updatePosition(cherry, cherryPos);
@@ -53,68 +78,103 @@ int main() {
         updatePosition(, bullet5Pos);
         updateScreen();
     }
-    
-    bool bulletCollision1 = checkCollisionSprite(, cherry);
-    while (gameStop == false) {
-        if (bulletCollision1 == true) {
+
+    bool cherryCollision = checkCollisionSprite(, cherry);
+    bool chiliCollision = checkCollisionSprite(, chili);
+    bool bulletCollision3 = checkCollisionSprite();
+    bool bulletCollision4 = checkCollisionSprite();
+    bool bulletCollision5 = checkCollisionSprite();
+    while (gameStop == false)
+    {
+        if (cherryCollision == true)
+        {
             hideSprite(cherry);
+            updatePosition(cherry, bulletRespawn);
             wait(1);
             showSprite(cherry);
-            updatePosition(cherry, bulletRespawn);
         }
-        bool bulletCollision2 = checkCollisionSprite(chili);
-        if (bulletCollision2 == true) {
+        if (chiliCollision == true)
+        {
             hideSprite(chili);
+            updatePosition(chili, bulletRespawn);
             wait(1);
             showSprite(chili);
-            updatePosition(chili, bulletRespawn);
         }
-        bool bulletCollision3 = checkCollisionSprite();
-        if (bulletCollision3 == true) {
+        if (bulletCollision3 == true)
+        {
             hideSprite();
+            updatePosition(, bulletRespawn);
             wait(1);
             showSprite();
-            updatePosition(, bulletRespawn);
         }
-        bool bulletCollision4 = checkCollisionSprite();
-        if (bulletCollision4 == true) {
+        if (bulletCollision4 == true)
+        {
             hideSprite();
+            updatePosition(, bulletRespawn);
             wait(1);
             showSprite();
-            updatePosition(, bulletRespawn);
         }
-        bool bulletCollision5 = checkCollisionSprite();
-        if (bulletCollision5 == true) {
+        if (bulletCollision5 == true)
+        {
             hideSprite();
+            updatePosition(, bulletRespawn);
             wait(1);
             showSprite();
-            updatePosition(, bulletRespawn);
         }
         updateScreen();
     }
 
-    while (gameStop == false) {
-        if (cherryPos.x <= -40) {
+    while (gameStop == false)
+    {
+        if (cherryPos.x <= -40)
+        {
             updatePosition(cherry, bulletRespawn);
         }
-        if (chiliPos.x <= -40) {
+        if (chiliPos.x <= -40)
+        {
             updatePosition(chili, bulletRespawn);
         }
-        if (bullet3Pos.x <= -40) {
+        if (bullet3Pos.x <= -40)
+        {
             updatePosition(, bulletRespawn);
         }
-        if (bullet4Pos.x <= -40) {
+        if (bullet4Pos.x <= -40)
+        {
             updatePosition(, bulletRespawn);
         }
-        if (bullet5Pos.x <= -40) {
+        if (bullet5Pos.x <= -40)
+        {
             updatePosition(, bulletRespawn);
+        }
+    }
+
+    //Health and Lose Screen
+    bool wasAPressed = isButtonDown(A);
+    int health = 5;
+    if (cherryCollision == true || cherryCollision == true || bulletCollision3 == true || bulletCollision4 == true || bulletCollision5 == true)
+    {
+        health -= 1;
+    }
+    if (health <= 0)
+    {
+        gameStop = true;
+        drawBackground("loseScreen", origin);
+        drawFilledRectangle(black, box1Pos, box1Size);
+        drawFilledRectangle(black, box2Pos, box2Size);
+        drawHollowRectangle(white, box1Pos, box1Size);
+        drawHollowRectangle(white, box2Pos, box2Size);
+        drawText("FAILED", white, text1Pos);
+        drawText("Press A to start again", white, text2Pos);
+        if (wasAPressed == true) {
+
         }
     }
     //Pause Menu Code
     bool isStartPressed = wasButtonPressed(START);
-    if (isStartPressed == true) {
+    if (isStartPressed == true)
+    {
         drawBackground(, origin);
         hideSprite();
-
     }
+    //Win
 }
