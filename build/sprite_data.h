@@ -1,7 +1,7 @@
 /*
  * Exported with nin10kit v1.8
  * Invocation command was nin10kit --mode=sprites --bpp=8 --for_bitmap --transparent=FF00FF ./build/sprite_data ./sprites/cherrySprite.png ./sprites/chiliSprite.png 
- * Time-stamp: Tuesday 07/06/2021, 16:24:30
+ * Time-stamp: Wednesday 07/07/2021, 15:37:04
  * 
  * Image Information
  * -----------------
