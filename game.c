@@ -1,5 +1,31 @@
 #include <gbalib.h>
-
+void startGame() {
+    Color krannertwall ={252, 131, 67}
+    Position mikeStart = {40, 80};
+    Position startTextPos = {200, 20};
+    Size startTextSize = {30, 20};
+    drawBackground("KrannertHall", origin);
+    updatePosition(mike, mikeStart);
+    drawText("Ready?", black, startTextPos);
+    wait(1.5);
+    drawFilledRectangle(krannertwall, startTextPos, startTextSize);
+    wait(0.5);
+    drawText("3", black, startTextPos);
+    wait(0.5);
+    drawFilledRectangle(krannertwall, startTextPos, startTextSize);
+    wait(0.5);
+    drawText("2", black, startTextPos);
+    wait(0.5);
+    drawFilledRectangle(krannertwall, startTextPos, startTextSize);
+    wait(0.5);
+    drawText("1", black, startTextPos);
+    wait(0.5);
+    drawFilledRectangle(krannertwall, startTextPos, startTextSize);
+    wait(0.5);
+    drawText("Go!", black, startTextPos);
+    wait(0.5);
+    drawFilledRectangle(krannertwall, startTextPos, startTextSize);
+}
 int main()
 {
 
@@ -15,8 +41,12 @@ int main()
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
-    Sprite cherry = createSprite("cherrySprite", spriteSize);
-    Sprite chili = createSprite("chiliSprite", spriteSize);
+    Sprite mike = createSprite ("mikesprite", spriteSize);
+    Sprite cherry = createSprite("realcherry", spriteSize);
+    Sprite chili = createSprite("realchili", spriteSize);
+    Sprite plum = createSprite("plum", spriteSize);
+    Sprite carrot = createSprite("realcarrot", spriteSize);
+    Sprite watermelon = createSprite("watermelon", spriteSize);
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
 
@@ -26,26 +56,30 @@ int main()
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
+    bool wasBPressed = isButtonDown(B);
+    if (wasBPressed == true) {
+
+    }
 
     //Buttons, Sprite Movement
-    Position protagonistPos = {};
+    Position mikePos = {40, 80};
     bool isUpPressed = isButtonDown(UP);
     bool isDownPressed = isButtonDown(DOWN);
-    bool gameStop = isSpriteHidden();
+    bool gameStop = isSpriteHidden(mike);
     while (gameStop == false)
     {
         if (isUpPressed == true)
         {
-            protagonistPos = getPosition();
-            protagonistPos.y -= 1;
-            updatePosition(, protagonistPos);
+            mikePos = getPosition(mike);
+            mikePos.y -= 1;
+            updatePosition(mike, mikePos);
         }
         if (isDownPressed == true)
             ;
         {
-            protagonistPos = getPosition();
-            protagonistPos.y += 1;
-            updatePosition(, protagonistPos);
+            mikePos = getPosition(mike);
+            mikePos.y += 1;
+            updatePosition(mike, mikePos);
         }
         updateScreen();
     }
@@ -55,9 +89,9 @@ int main()
     Position bulletRespawn = {250, randomY};
     Position cherryPos = bulletRespawn;
     Position chiliPos = bulletRespawn;
-    Position bullet3Pos = bulletRespawn;
-    Position bullet4Pos = bulletRespawn;
-    Position bullet5Pos = bulletRespawn;
+    Position plumPos = bulletRespawn;
+    Position carrotPos = bulletRespawn;
+    Position watermelonPos = bulletRespawn;
 
     while (gameStop == false)
     {
@@ -67,23 +101,23 @@ int main()
         chiliPos = getPosition(chili);
         chiliPos.x -= 5;
         updatePosition(chili, chiliPos);
-        bullet3Pos = getPosition();
-        bullet3Pos.x -= 5;
-        updatePosition(, bullet3Pos);
-        bullet4Pos = getPosition();
-        bullet4Pos.x -= 5;
-        updatePosition(, bullet4Pos);
-        bullet5Pos = getPosition();
-        bullet5Pos.x -= 5;
-        updatePosition(, bullet5Pos);
+        plumPos = getPosition(plum);
+        plumPos.x -= 5;
+        updatePosition(plum, plumPos);
+        carrotPos = getPosition(carrot);
+        carrotPos.x -= 5;
+        updatePosition(carrot, carrotPos);
+        watermelonPos = getPosition(watermelon);
+        watermelonPos.x -= 5;
+        updatePosition(watermelon, watermelonPos);
         updateScreen();
     }
 
-    bool cherryCollision = checkCollisionSprite(, cherry);
-    bool chiliCollision = checkCollisionSprite(, chili);
-    bool bulletCollision3 = checkCollisionSprite();
-    bool bulletCollision4 = checkCollisionSprite();
-    bool bulletCollision5 = checkCollisionSprite();
+    bool cherryCollision = checkCollisionSprite(mike, cherry);
+    bool chiliCollision = checkCollisionSprite(mike, chili);
+    bool plumCollision = checkCollisionSprite(mike, plum);
+    bool carrotCollision = checkCollisionSprite(mike, carrot);
+    bool watermelonCollision = checkCollisionSprite(mike, watermelon);
     while (gameStop == false)
     {
         if (cherryCollision == true)
@@ -100,26 +134,26 @@ int main()
             wait(1);
             showSprite(chili);
         }
-        if (bulletCollision3 == true)
+        if (plumCollision == true)
         {
-            hideSprite();
-            updatePosition(, bulletRespawn);
+            hideSprite(plum);
+            updatePosition(plum, bulletRespawn);
             wait(1);
-            showSprite();
+            showSprite(plum);
         }
-        if (bulletCollision4 == true)
+        if (carrotCollision == true)
         {
-            hideSprite();
-            updatePosition(, bulletRespawn);
+            hideSprite(carrot);
+            updatePosition(carrot, bulletRespawn);
             wait(1);
-            showSprite();
+            showSprite(carrot);
         }
-        if (bulletCollision5 == true)
+        if (watermelonCollision == true)
         {
-            hideSprite();
-            updatePosition(, bulletRespawn);
+            hideSprite(watermelon);
+            updatePosition(watermelon, bulletRespawn);
             wait(1);
-            showSprite();
+            showSprite(watermelon);
         }
         updateScreen();
     }
@@ -134,17 +168,17 @@ int main()
         {
             updatePosition(chili, bulletRespawn);
         }
-        if (bullet3Pos.x <= -40)
+        if (plumPos.x <= -40)
         {
-            updatePosition(, bulletRespawn);
+            updatePosition(plum, bulletRespawn);
         }
-        if (bullet4Pos.x <= -40)
+        if (carrotPos.x <= -40)
         {
-            updatePosition(, bulletRespawn);
+            updatePosition(carrot, bulletRespawn);
         }
-        if (bullet5Pos.x <= -40)
+        if (watermelonPos.x <= -40)
         {
-            updatePosition(, bulletRespawn);
+            updatePosition(watermelon, bulletRespawn);
         }
     }
 
@@ -170,8 +204,9 @@ int main()
         }
     }
     //Pause Menu Code
-    bool isStartPressed = wasButtonPressed(START);
-    if (isStartPressed == true)
+    bool wasStartPressed = wasButtonPressed(START);
+    bool wasSelectPressed = wasButtonPressed(SELECT);
+    if (wasStartPressed == true)
     {
         drawBackground(, origin);
         hideSprite();
