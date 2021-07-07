@@ -28,6 +28,9 @@ void startGame() {
 }
 int main()
 {
+    //Sound
+    Sound music = createSound("oldvideogamemusic");
+    playSOund(music, true);
 
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
