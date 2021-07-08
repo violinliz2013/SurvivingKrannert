@@ -71,32 +71,37 @@ int main()
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
-    bool wasBPressed = isButtonDown(B);
-    bool winGame = false;
-    if (wasBPressed == true)
+    bool wasBPressed = false;
+    while (wasBPressed == false)
     {
-        startGame();
-        wait(59.5);
-        winGame == true;
+        wasBPressed = isButtonDown(B);
+        updateScreen();
+        if (wasBPressed == true)
+        {
+            startGame();
+        }
     }
 
     //Buttons, Sprite Movement
     Position mikePos = {40, 80};
-    bool isUpPressed = isButtonDown(UP);
-    bool isDownPressed = isButtonDown(DOWN);
-    bool gameStop = isSpriteHidden(mike);
+    bool isUpPressed = false;
+    bool isDownPressed = false;
+    bool gameStop = false;
+    gameStop = isSpriteHidden(mike);
     while (gameStop == false)
     {
+        isUpPressed = isButtonDown(UP);
+        isDownPressed = isButtonDown(DOWN);
         if (isUpPressed == true)
         {
-            mikePos = getPosition(mike);
+            Position mikePos = getPosition(mike);
             mikePos.y -= 1;
             updatePosition(mike, mikePos);
         }
         if (isDownPressed == true)
             ;
         {
-            mikePos = getPosition(mike);
+            Position mikePos = getPosition(mike);
             mikePos.y += 1;
             updatePosition(mike, mikePos);
         }
@@ -220,26 +225,12 @@ int main()
         drawText("Press A to start again", white, text2Pos);
         if (wasAPressed == true)
         {
-            winGame == false;
+            gameStop = false;
             startGame();
-            wait(59.5);
-            winGame == true;
         }
     }
+    wait(59.5);
+    gameStop = true;
+
     //Win
-    if (winGame = true) {
-    drawBackground(winscreen, origin);
-    drawFilledRectangle(black, box1Pos, box1Size);
-    drawFilledRectangle(black, box2Pos, box2Size);
-    drawHollowRectangle(white, box1Pos, box1Size);
-    drawHollowRectangle(white, box2Pos, box2Size);
-    drawText("SUCCESS", white, text1Pos);
-    drawText("Press A to start again", white, text2Pos);
-    if (wasAPressed == true) {
-        winGame == false;
-        startGame();
-        wait(59.5);
-        winGame == true;
-        }
-    }
 }
