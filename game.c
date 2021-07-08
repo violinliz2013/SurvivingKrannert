@@ -8,7 +8,7 @@ void startGame() {
     Size startTextSize = {30, 20};
     Size spriteSize = {32, 32};
     Sprite mike = createSprite ("mikesprite", spriteSize);
-    Background krannertHall = createBackground("krannertHall");
+    Background krannertHall = createBackground("krannertHall"); 
     drawBackground(krannertHall, origin);
     showSprite(mike);
     updatePosition(mike, mikeStart);
@@ -31,6 +31,7 @@ void startGame() {
     drawText("Go!", black, startTextPos);
     wait(0.5);
     drawFilledRectangle(krannertwall, startTextPos, startTextSize);
+    wait(59.5);
 }
 int main()
 {
@@ -74,9 +75,10 @@ int main()
     updatePosition(mike, center);
     showSprite(mike);
     bool wasBPressed = isButtonDown(B);
+    bool winGame = false;
     if (wasBPressed == true) {
         startGame();
-        wait(60);
+        winGame = true;
     }
 
     //Buttons, Sprite Movement
@@ -240,5 +242,16 @@ int main()
         }
     }
     //Win
-
+    if (winGame = true) {
+        drawBackground(winScreen, origin);
+        drawFilledRectangle(black, box1Pos, box1Size);
+        drawFilledRectangle(black, box2Pos, box2Size);
+        drawHollowRectangle(white, box1Pos, box1Size);
+        drawHollowRectangle(white, box2Pos, box2Size);
+        drawText("SUCCESS", white, text1Pos);
+        drawText("Press A to start again", white, text2Pos);
+        if (wasAPressed == true) {
+            startGame();
+        }
+    }
 }
