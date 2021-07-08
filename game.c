@@ -31,7 +31,6 @@ void startGame() {
     drawText("Go!", black, startTextPos);
     wait(0.5);
     drawFilledRectangle(krannertwall, startTextPos, startTextSize);
-    wait(59.5);
 }
 int main()
 {
@@ -75,6 +74,7 @@ int main()
     bool winGame = false;
     if (wasBPressed == true) {
         startGame();
+        wait(59.5);
         winGame = true;
     }
 
