@@ -1,10 +1,15 @@
 #include <gbalib.h>
 void startGame() {
-    Color krannertwall ={252, 131, 67}
+    Color krannertwall ={252, 131, 67};
+    Color black = createColor(0, 0, 0);
     Position mikeStart = {40, 80};
     Position startTextPos = {200, 20};
+    Position origin = {0, 0};
     Size startTextSize = {30, 20};
+    Size spriteSize = {32, 32};
+    Sprite mike = createSprite ("mikesprite", spriteSize);
     drawBackground("KrannertHall", origin);
+    showSprite(mike);
     updatePosition(mike, mikeStart);
     drawText("Ready?", black, startTextPos);
     wait(1.5);
@@ -40,7 +45,7 @@ int main()
     Position box2Pos = {35, 135};
     Position ts1Pos = {60, 20};
     Position ts2Pos = {65, 140};
-    Size spriteSize = {16, 16};
+    Size spriteSize = {32, 32};
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
@@ -61,7 +66,8 @@ int main()
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
     bool wasBPressed = isButtonDown(B);
     if (wasBPressed == true) {
-
+        startGame();
+        wait(60);
     }
 
     //Buttons, Sprite Movement
