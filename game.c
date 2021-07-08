@@ -237,5 +237,6 @@ int main()
         startGame();
         wait(59.5);
         winGame == true;
+        }
     }
 }
