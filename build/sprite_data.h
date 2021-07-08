@@ -1,7 +1,7 @@
 /*
  * Exported with nin10kit v1.8
  * Invocation command was nin10kit --mode=sprites --bpp=8 --for_bitmap --transparent=FF00FF ./build/sprite_data ./sprites/realchili.png ./sprites/mikesprite.png ./sprites/realcherry.png ./sprites/bob.png ./sprites/watermelon.png ./sprites/plum.png ./sprites/realcarrot.png 
- * Time-stamp: Thursday 07/08/2021, 15:17:53
+ * Time-stamp: Thursday 07/08/2021, 15:27:17
  * 
  * Image Information
  * -----------------
