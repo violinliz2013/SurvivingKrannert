@@ -88,7 +88,7 @@ int main()
     bool isDownPressed = false;
     bool gameStop = false;
     gameStop = isSpriteHidden(mike);
-    while (gameStop == false)
+    while (true)
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
