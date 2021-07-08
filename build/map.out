@@ -1,0 +1,910 @@
+Archive member included to satisfy reference by file (symbol)
+
+/opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_ASM.o)
+                              /opt/ghp_tools/gbalib/build/gba.o (AAS_DoDMA3)
+/opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+                              /opt/ghp_tools/gbalib/build/gba.o (AAS_SetConfig)
+/opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+                              /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o) (AAS_MOD_Stop)
+/opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+                              /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o) (AAS_sin)
+/opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_SFX.o)
+                              /opt/ghp_tools/gbalib/build/sound.o (AAS_SFX_Play)
+/opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Mixer.o)
+                              /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o) (AAS_MixAudio)
+/usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+                              /opt/ghp_tools/gbalib/build/gba.o (__aeabi_dmul)
+/usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+                              /opt/ghp_tools/gbalib/build/sound.o (__aeabi_i2d)
+/usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+                              /opt/ghp_tools/gbalib/build/sound.o (__aeabi_ddiv)
+/usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+                              /opt/ghp_tools/gbalib/build/gba.o (__aeabi_d2iz)
+/usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+                              ./build/sprite_map.o (_ctype_)
+/usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+                              /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o) (memcpy)
+/usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+                              ./build/sprite_map.o (strcmp)
+/usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+                              ./build/sprite_map.o (strlen)
+
+Allocating common symbols
+Common symbol       size              file
+
+sprite_list         0x400             ./build/sprite_map.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /opt/ghp_tools/gbalib/build/crt/crt0.o
+LOAD ./build/AAS_Data.o
+LOAD ./build/sprite_data.o
+LOAD ./build/sprite_map.o
+LOAD ./build/background_data.o
+LOAD ./build/background_map.o
+LOAD ./build/sound_map.o
+LOAD /opt/ghp_tools/gbalib/build/gba.o
+LOAD /opt/ghp_tools/gbalib/build/sprite.o
+LOAD /opt/ghp_tools/gbalib/build/text.o
+LOAD /opt/ghp_tools/gbalib/build/font.o
+LOAD /opt/ghp_tools/gbalib/build/sound.o
+LOAD /opt/ghp_tools/gbalib/build/background.o
+LOAD /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a
+LOAD ./build/game.o
+LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libstdc++.a
+LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libm.a
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a
+END GROUP
+                0x0000000008000000                __text_start = DEFINED (__gba_multiboot)?0x2000000:0x8000000
+                0x0000000002040000                __eheap_end = 0x2040000
+                0x0000000003000000                __iwram_start = 0x3000000
+                0x0000000003007c00                __iheap_end = 0x3007c00
+                0x0000000003007f00                __sp_usr = 0x3007f00
+                0x0000000003007fa0                __sp_irq = 0x3007fa0
+                0x0000000003007ffc                __intr_vector_buf = 0x3007ffc
+                0x0000000000007f00                __sp_usr_offset = (__sp_usr - __iwram_start)
+                0x00000000000000fc                __intr_vect_offset = (__intr_vector_buf - __sp_usr)
+
+.text           0x0000000008000000     0x8a28
+ *(EXCLUDE_FILE(*text.iwram*) .text)
+ .text          0x0000000008000000      0x20c /opt/ghp_tools/gbalib/build/crt/crt0.o
+                0x0000000008000000                _start
+                0x00000000080000c4                __boot_method
+                0x00000000080000c5                __slave_number
+                0x00000000080000e0                start_vector
+                0x0000000008000186                __FarProcedure
+                0x0000000008000186                __FarFunction
+ .text          0x000000000800020c        0x0 ./build/AAS_Data.o
+ .text          0x000000000800020c        0x0 ./build/sprite_data.o
+ .text          0x000000000800020c      0x1d0 ./build/sprite_map.o
+                0x000000000800020c                populateSpriteImages
+                0x00000000080002f4                getSpriteInfo
+                0x0000000008000308                getObjAttrImageInfo
+ .text          0x00000000080003dc        0x0 ./build/background_data.o
+ .text          0x00000000080003dc      0x188 ./build/background_map.o
+                0x00000000080003dc                populateBackgrounds
+                0x0000000008000490                getBackground
+ .text          0x0000000008000564       0x50 ./build/sound_map.o
+                0x0000000008000564                populateSounds
+                0x0000000008000598                getSound
+ .text          0x00000000080005b4      0x9d0 /opt/ghp_tools/gbalib/build/gba.o
+                0x00000000080005b4                waitForVBlank
+                0x0000000008000644                InterruptProcess
+                0x00000000080007c0                AgbMain
+                0x00000000080007d8                updateScreen
+                0x000000000800081c                randomInteger
+                0x0000000008000860                wait
+                0x00000000080008e0                waitAndCheckButton
+                0x0000000008000990                isButtonDown
+                0x00000000080009d8                wasButtonPressed
+                0x0000000008000a54                wasButtonReleased
+                0x0000000008000ad0                createColor
+                0x0000000008000b68                drawFilledRectangle
+                0x0000000008000c6c                drawHollowRectangle
+                0x0000000008000e04                checkCollisionPosition
+                0x0000000008000ea8                checkCollisionSprite
+ .text          0x0000000008000f84      0x56c /opt/ghp_tools/gbalib/build/sprite.o
+                0x0000000008001170                createSprite
+                0x00000000080011f4                showSprite
+                0x0000000008001228                hideSprite
+                0x0000000008001278                isSpriteHidden
+                0x00000000080012ac                updatePosition
+                0x0000000008001370                getPosition
+                0x00000000080013d0                updateImage
+ .text          0x00000000080014f0      0x7e4 /opt/ghp_tools/gbalib/build/text.o
+                0x0000000008001aa8                drawText
+                0x0000000008001ae4                drawBlockText
+                0x0000000008001b60                animateTextFast
+                0x0000000008001bdc                animateTextSlow
+                0x0000000008001c58                animateTextSound
+ .text          0x0000000008001cd4        0x0 /opt/ghp_tools/gbalib/build/font.o
+ .text          0x0000000008001cd4      0x410 /opt/ghp_tools/gbalib/build/sound.o
+                0x0000000008001d58                createSound
+                0x0000000008001e00                playSound
+                0x0000000008001e90                stopSound
+                0x0000000008001ef8                pauseSound
+                0x0000000008001f74                resumeSound
+                0x0000000008001ff4                setVolume
+                0x00000000080020c4                getVolume
+ .text          0x00000000080020e4      0x138 /opt/ghp_tools/gbalib/build/background.o
+                0x00000000080020e4                createBackground
+                0x0000000008002114                drawBackground
+ .text          0x000000000800221c      0x360 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_ASM.o)
+                0x000000000800221c                _AAS_vol_lookup
+                0x0000000008002480                AAS_MixAudio_SetMode_BoostAndClip
+                0x00000000080024c0                AAS_MixAudio_SetMode_Normal
+                0x00000000080024d0                AAS_MixAudio_SetMode_Boost
+                0x0000000008002510                AAS_MixAudio_SetMaxChans_4
+                0x000000000800253c                AAS_MixAudio_SetMaxChans_8
+                0x0000000008002544                AAS_MixAudio_SetMaxChans_2
+                0x000000000800256c                AAS_DoDMA3
+ .text          0x000000000800257c     0x1e70 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+                0x0000000008003d7c                AAS_MixAudio_SetMode
+                0x0000000008003dc8                AAS_SetConfig
+                0x00000000080041d8                AAS_GetOutputBufferAddress
+                0x0000000008004208                AAS_GetOutputBufferLength
+                0x0000000008004214                AAS_FastTimer1InterruptHandler
+                0x00000000080042e8                AAS_DoWork
+                0x0000000008004300                AAS_Timer1InterruptHandler
+                0x00000000080043d8                AAS_GetActualMixRate
+ .text          0x00000000080043ec     0x29e4 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+                0x00000000080043ec                AAS_MOD_GetNumChannels
+                0x00000000080043f8                AAS_MOD_GetLastFilterValue
+                0x0000000008004404                AAS_MOD_QueueSongPos
+                0x000000000800443c                AAS_MOD_SetSongPos
+                0x00000000080045b8                AAS_MOD_GetSongPos
+                0x00000000080045d0                AAS_MOD_GetLineNum
+                0x00000000080045e8                AAS_MOD_GetVolume
+                0x00000000080045f4                AAS_MOD_SetVolume
+                0x000000000800489c                AAS_MOD_Pause
+                0x00000000080049c8                AAS_MOD_Resume
+                0x0000000008004c00                AAS_MOD_Stop
+                0x0000000008004fa4                AAS_MOD_HasLooped
+                0x0000000008004fb0                AAS_MOD_IsPlaying
+                0x0000000008004fc0                AAS_MOD_Play
+                0x0000000008005520                AAS_MOD_SetLoop
+                0x000000000800554c                AAS_MOD_Interrupt
+ .text          0x0000000008006dd0        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+ .text          0x0000000008006dd0      0x618 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_SFX.o)
+                0x0000000008006dd0                AAS_SFX_GetNumChannels
+                0x0000000008006e14                AAS_SFX_GetChannel
+                0x0000000008006e50                AAS_SFX_GetOutput
+                0x0000000008006e84                AAS_SFX_ChannelExists
+                0x0000000008006edc                AAS_SFX_Play
+                0x0000000008007020                AAS_SFX_IsActive
+                0x0000000008007098                AAS_SFX_EndLoop
+                0x000000000800711c                AAS_SFX_SetFrequency
+                0x00000000080071e4                AAS_SFX_SetVolume
+                0x0000000008007284                AAS_SFX_Stop
+                0x0000000008007314                AAS_SFX_Resume
+ .text          0x00000000080073e8        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Mixer.o)
+ .text          0x00000000080073e8      0x17c ./build/game.o
+                0x00000000080073e8                startGame
+ .text          0x0000000008007564      0x290 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .text          0x00000000080077f4      0x424 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+                0x00000000080077f4                __aeabi_drsub
+                0x00000000080077fc                __aeabi_dsub
+                0x00000000080077fc                __subdf3
+                0x0000000008007800                __adddf3
+                0x0000000008007800                __aeabi_dadd
+                0x0000000008007b10                __aeabi_ui2d
+                0x0000000008007b10                __floatunsidf
+                0x0000000008007b34                __floatsidf
+                0x0000000008007b34                __aeabi_i2d
+                0x0000000008007b5c                __extendsfdf2
+                0x0000000008007b5c                __aeabi_f2d
+                0x0000000008007ba4                __aeabi_ul2d
+                0x0000000008007ba4                __floatundidf
+                0x0000000008007bb8                __floatdidf
+                0x0000000008007bb8                __aeabi_l2d
+ .text          0x0000000008007c18      0x49c /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+                0x0000000008007c18                __aeabi_dmul
+                0x0000000008007c18                __muldf3
+                0x0000000008007ea8                __aeabi_ddiv
+                0x0000000008007ea8                __divdf3
+ .text          0x00000000080080b4       0x5c /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+                0x00000000080080b4                __fixdfsi
+                0x00000000080080b4                __aeabi_d2iz
+ .text          0x0000000008008110        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .text          0x0000000008008110      0x11c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+                0x0000000008008110                memcpy
+ .text          0x000000000800822c      0x224 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+                0x000000000800822c                strcmp
+ .text          0x0000000008008450       0x60 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+                0x0000000008008450                strlen
+ *(.text.*)
+ .text.startup  0x00000000080084b0      0x3b0 ./build/game.o
+                0x00000000080084b0                main
+ .text.startup.__stub
+                0x0000000008008860      0x184 linker stubs
+ *(.stub)
+ *(.gnu.warning)
+ *(.gnu.linkonce.t*)
+ *(.glue_7)
+ .glue_7        0x0000000008008a28        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x0000000008008a28        0x0 linker stubs
+                0x0000000008008a28                . = ALIGN (0x4)
+                0x0000000008008a28                __text_end = .
+
+.vfp11_veneer   0x0000000008008a28        0x0
+ .vfp11_veneer  0x0000000008008a28        0x0 linker stubs
+
+.v4_bx          0x0000000008008a28        0x0
+ .v4_bx         0x0000000008008a28        0x0 linker stubs
+
+.iplt           0x0000000008008a28        0x0
+ .iplt          0x0000000008008a28        0x0 /opt/ghp_tools/gbalib/build/crt/crt0.o
+
+.rodata         0x0000000008008a28    0xacef8
+ *(.rodata)
+ .rodata        0x0000000008008a28    0x44a19 ./build/AAS_Data.o
+                0x0000000008008a28                AAS_data_v111
+                0x0000000008008a2c                AAS_DATA_SFX_START_oldvideogamemusic
+                0x0000000008008a30                AAS_DATA_SFX_END_oldvideogamemusic
+                0x0000000008008a34                AAS_DATA_NUM_MODS
+                0x0000000008008a38                AAS_RestartPos
+                0x0000000008008a38                AAS_NumChans
+                0x0000000008008a38                AAS_Sequence
+                0x0000000008008a38                AAS_SampleData
+                0x0000000008008a38                AAS_ModSamples
+                0x000000000804d440                AAS_PatternData
+ *fill*         0x000000000804d441        0x3 ff
+ .rodata        0x000000000804d444     0x1b00 ./build/sprite_data.o
+                0x000000000804d444                sprite_data
+                0x000000000804ed44                sprite_data_palette
+ .rodata        0x000000000804ef44        0xc ./build/sprite_map.o
+ .rodata        0x000000000804ef50    0x5dc00 ./build/background_data.o
+                0x000000000804ef50                winscreen
+                0x0000000008061b50                losescreen
+                0x0000000008074750                pausescreen
+                0x0000000008087350                titlescreen
+                0x0000000008099f50                krannerthall
+ .rodata        0x00000000080acb50     0x3000 /opt/ghp_tools/gbalib/build/font.o
+                0x00000000080acb50                fontdata_6x8
+ .rodata        0x00000000080afb50      0x2ac /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+                0x00000000080afb7c                AAS_zero_vols
+ .rodata        0x00000000080afdfc       0x7c /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+ .rodata        0x00000000080afe78     0x5814 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+                0x00000000080afe78                AAS_sin
+                0x00000000080afeb8                AAS_tick_rate
+                0x00000000080aff0c                AAS_period_table
+                0x00000000080b068c                AAS_MOD_period_conv_table
+                0x00000000080b168c                AAS_DivTable
+ .rodata        0x00000000080b568c      0x101 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+                0x00000000080b568c                _ctype_
+ *all.rodata*(*)
+ *(.roda)
+ *(.rodata.*)
+ *fill*         0x00000000080b578d        0x3 ff
+ .rodata.str1.4
+                0x00000000080b5790       0x47 ./build/sprite_map.o
+ *fill*         0x00000000080b57d7        0x1 ff
+ .rodata.str1.4
+                0x00000000080b57d8       0x3e ./build/background_map.o
+ *fill*         0x00000000080b5816        0x2 ff
+ .rodata.str1.4
+                0x00000000080b5818       0x12 ./build/sound_map.o
+ *fill*         0x00000000080b582a        0x2 ff
+ .rodata.str1.4
+                0x00000000080b582c       0xf3 ./build/game.o
+                                        0x107 (size before relaxing)
+ *(.gnu.linkonce.r*)
+                0x00000000080b5920                . = ALIGN (0x4)
+ *fill*         0x00000000080b591f        0x1 ff
+
+.rel.dyn        0x00000000080b5920        0x0
+ .rel.iplt      0x00000000080b5920        0x0 /opt/ghp_tools/gbalib/build/crt/crt0.o
+
+.ctors          0x00000000080b5920        0x0
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+                0x00000000080b5920                . = ALIGN (0x4)
+                0x00000000080b5920                laddr = (((ADDR (.text) + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.ctors))
+
+.dtors          0x00000000080b5920        0x0
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+                0x00000000080b5920                . = ALIGN (0x4)
+                0x00000000080b5920                laddr = ((((ADDR (.text) + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.ctors)) + SIZEOF (.dtors))
+
+.eh_frame       0x00000000080b5920        0x0
+ *(.eh_frame)
+                0x00000000080b5920                . = ALIGN (0x4)
+
+.gcc_except_table
+                0x00000000080b5920        0x0
+ *(.gcc_except_table)
+                0x00000000080b5920                . = ALIGN (0x4)
+                0x00000000080b5920                __iwram_lma = ((((((((ADDR (.text) + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.ctors)) + SIZEOF (.dtors)) + SIZEOF (.eh_frame)) + SIZEOF (.gcc_except_table)) + 0x3) & 0xfffffffffffffffc)
+
+.iwram          0x0000000003000000      0xce0 load address 0x00000000080b5920
+                0x0000000003000000                __iwram_start = ABSOLUTE (.)
+ *(.iwram)
+ .iwram         0x0000000003000000        0xc /opt/ghp_tools/gbalib/build/crt/crt0.o
+                0x0000000003000000                intr_main
+ .iwram         0x000000000300000c        0x2 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+                0x000000000300000c                AAS_changed
+ *fill*         0x000000000300000e        0x2 ff
+ .iwram         0x0000000003000010      0xcd0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Mixer.o)
+                0x000000000300003c                AAS_MixAudio_NoChange
+                0x000000000300006c                AAS_MixAudio
+                0x0000000003000078                _AAS_MixAudio_mod1
+                0x0000000003000080                _AAS_MixAudio_mod5
+                0x0000000003000258                _AAS_MixAudio_mod3
+                0x00000000030002f0                _AAS_MixAudio_mod6
+                0x0000000003000370                _AAS_MixAudio_mod2
+                0x00000000030003a0                _AAS_MixAudio_mod7
+                0x0000000003000420                _AAS_MixAudio_mod8
+                0x000000000300049c                _AAS_MixAudio_mod4
+ *iwram.*(.text)
+                0x0000000003000ce0                . = ALIGN (0x4)
+                0x00000000080b6600                __data_lma = (((((((ADDR (.text) + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.ctors)) + SIZEOF (.dtors)) + SIZEOF (.eh_frame)) + SIZEOF (.gcc_except_table)) + SIZEOF (.iwram))
+                0x0000000003000ce0                __iwram_end = .
+
+.bss            0x0000000003000ce0      0x5d4 load address 0x00000000080b6600
+                0x0000000003000ce0                __bss_start = ABSOLUTE (.)
+                0x0000000003000ce0                __bss_start__ = ABSOLUTE (.)
+ *(.dynbss)
+ *(.gnu.linkonce.b*)
+ *(COMMON)
+ COMMON         0x0000000003000ce0      0x400 ./build/sprite_map.o
+                0x0000000003000ce0                sprite_list
+                0x00000000030010e0                . = ALIGN (0x4)
+ .bss           0x00000000030010e0        0x0 /opt/ghp_tools/gbalib/build/crt/crt0.o
+ .bss           0x00000000030010e0        0x0 ./build/AAS_Data.o
+ .bss           0x00000000030010e0        0x0 ./build/sprite_data.o
+ .bss           0x00000000030010e0       0x58 ./build/sprite_map.o
+ .bss           0x0000000003001138        0x0 ./build/background_data.o
+ .bss           0x0000000003001138       0x54 ./build/background_map.o
+ .bss           0x000000000300118c       0x14 ./build/sound_map.o
+ .bss           0x00000000030011a0        0x4 /opt/ghp_tools/gbalib/build/gba.o
+ .bss           0x00000000030011a4        0x4 /opt/ghp_tools/gbalib/build/sprite.o
+ .bss           0x00000000030011a8        0x0 /opt/ghp_tools/gbalib/build/text.o
+ .bss           0x00000000030011a8        0x0 /opt/ghp_tools/gbalib/build/font.o
+ .bss           0x00000000030011a8      0x10c /opt/ghp_tools/gbalib/build/sound.o
+ .bss           0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/build/background.o
+ .bss           0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_ASM.o)
+ .bss           0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+ .bss           0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+ .bss           0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+ .bss           0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_SFX.o)
+ .bss           0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Mixer.o)
+ .bss           0x00000000030012b4        0x0 ./build/game.o
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .bss           0x00000000030012b4        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+                0x00000000030012b4                __bss_end = .
+                0x00000000030012b4                __bss_end__ = .
+
+.data           0x00000000030012b4        0xc load address 0x00000000080b6600
+                0x00000000030012b4                __data_start = ABSOLUTE (.)
+ *(.data)
+ .data          0x00000000030012b4        0x0 /opt/ghp_tools/gbalib/build/crt/crt0.o
+ .data          0x00000000030012b4        0x0 ./build/AAS_Data.o
+ .data          0x00000000030012b4        0x0 ./build/sprite_data.o
+ .data          0x00000000030012b4        0x0 ./build/sprite_map.o
+ .data          0x00000000030012b4        0x0 ./build/background_data.o
+ .data          0x00000000030012b4        0x0 ./build/background_map.o
+ .data          0x00000000030012b4        0x0 ./build/sound_map.o
+ .data          0x00000000030012b4        0xc /opt/ghp_tools/gbalib/build/gba.o
+                0x00000000030012b4                videoBuffer
+                0x00000000030012b8                charbase
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/build/sprite.o
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/build/text.o
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/build/font.o
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/build/sound.o
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/build/background.o
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_ASM.o)
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_SFX.o)
+ .data          0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Mixer.o)
+ .data          0x00000000030012c0        0x0 ./build/game.o
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .data          0x00000000030012c0        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+ *(.data.*)
+ *(.gnu.linkonce.d*)
+                0x00000000030012c0                . = ALIGN (0x4)
+                0x00000000080b660c                __iwram_overlay_lma = ((((((((ADDR (.text) + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.ctors)) + SIZEOF (.dtors)) + SIZEOF (.eh_frame)) + SIZEOF (.gcc_except_table)) + SIZEOF (.iwram)) + SIZEOF (.data))
+                0x00000000030012c0                __data_end = .
+                [!provide]                        PROVIDE (edata = .)
+                0x00000000030012c0                __iwram_overlay_start = .
+
+.igot.plt       0x00000000030012c0        0x0 load address 0x00000000080b660c
+ .igot.plt      0x00000000030012c0        0x0 /opt/ghp_tools/gbalib/build/crt/crt0.o
+
+.iwram0         0x00000000030012c0        0x0 load address 0x00000000080b660c
+ *(.iwram0)
+                0x00000000030012c0                . = ALIGN (0x4)
+                0x00000000080b660c                PROVIDE (__load_start_iwram0 = LOADADDR (.iwram0))
+                0x00000000080b660c                PROVIDE (__load_stop_iwram0 = (LOADADDR (.iwram0) + SIZEOF (.iwram0)))
+
+.iwram1         0x00000000030012c0        0x0
+ *(.iwram1)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram1 = LOADADDR (.iwram1))
+                [!provide]                        PROVIDE (__load_stop_iwram1 = (LOADADDR (.iwram1) + SIZEOF (.iwram1)))
+
+.iwram2         0x00000000030012c0        0x0
+ *(.iwram2)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram2 = LOADADDR (.iwram2))
+                [!provide]                        PROVIDE (__load_stop_iwram2 = (LOADADDR (.iwram2) + SIZEOF (.iwram2)))
+
+.iwram3         0x00000000030012c0        0x0
+ *(.iwram3)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram3 = LOADADDR (.iwram3))
+                [!provide]                        PROVIDE (__load_stop_iwram3 = (LOADADDR (.iwram3) + SIZEOF (.iwram3)))
+
+.iwram4         0x00000000030012c0        0x0
+ *(.iwram4)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram4 = LOADADDR (.iwram4))
+                [!provide]                        PROVIDE (__load_stop_iwram4 = (LOADADDR (.iwram4) + SIZEOF (.iwram4)))
+
+.iwram5         0x00000000030012c0        0x0
+ *(.iwram5)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram5 = LOADADDR (.iwram5))
+                [!provide]                        PROVIDE (__load_stop_iwram5 = (LOADADDR (.iwram5) + SIZEOF (.iwram5)))
+
+.iwram6         0x00000000030012c0        0x0
+ *(.iwram6)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram6 = LOADADDR (.iwram6))
+                [!provide]                        PROVIDE (__load_stop_iwram6 = (LOADADDR (.iwram6) + SIZEOF (.iwram6)))
+
+.iwram7         0x00000000030012c0        0x0
+ *(.iwram7)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram7 = LOADADDR (.iwram7))
+                [!provide]                        PROVIDE (__load_stop_iwram7 = (LOADADDR (.iwram7) + SIZEOF (.iwram7)))
+
+.iwram8         0x00000000030012c0        0x0
+ *(.iwram8)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram8 = LOADADDR (.iwram8))
+                [!provide]                        PROVIDE (__load_stop_iwram8 = (LOADADDR (.iwram8) + SIZEOF (.iwram8)))
+
+.iwram9         0x00000000030012c0        0x0
+ *(.iwram9)
+                0x00000000030012c0                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_iwram9 = LOADADDR (.iwram9))
+                [!provide]                        PROVIDE (__load_stop_iwram9 = (LOADADDR (.iwram9) + SIZEOF (.iwram9)))
+                0x00000000080b660c                __ewram_lma = ((((((((((((((((((ADDR (.text) + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.ctors)) + SIZEOF (.dtors)) + SIZEOF (.eh_frame)) + SIZEOF (.gcc_except_table)) + SIZEOF (.iwram)) + SIZEOF (.data)) + SIZEOF (.iwram0)) + SIZEOF (.iwram1)) + SIZEOF (.iwram2)) + SIZEOF (.iwram3)) + SIZEOF (.iwram4)) + SIZEOF (.iwram5)) + SIZEOF (.iwram6)) + SIZEOF (.iwram7)) + SIZEOF (.iwram8)) + SIZEOF (.iwram9))
+                0x00000000030012c0                __iwram_overlay_end = .
+                0x00000000030012c0                __iheap_start = .
+                0x0000000002000000                __ewram_start = DEFINED (__gba_multiboot)?__ewram_lma:0x2000000
+
+.ewram          0x0000000002000000      0xd4c load address 0x00000000080b660c
+ *(.ewram)
+ .ewram         0x0000000002000000       0x18 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+                0x0000000002000014                AAS_lib_v111
+ .ewram         0x0000000002000018      0x1e0 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+                0x0000000002000018                AAS_mod_num_chans
+                0x000000000200001a                AAS_mod_num
+ .ewram         0x00000000020001f8      0xb54 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+                0x00000000020001f8                AAS_chan_rearrange
+                0x0000000002000208                AAS_mix_scale
+                0x000000000200020a                AAS_volscale
+                0x000000000200020b                AAS_initialised
+                0x000000000200020c                AAS_mix_buffer
+                0x0000000002000c0c                AAS_channels
+                0x0000000002000d4c                . = ALIGN (0x4)
+                0x00000000080b7358                __ewram_overlay_lma = (((((((((((((((((((ADDR (.text) + SIZEOF (.text)) + SIZEOF (.rodata)) + SIZEOF (.ctors)) + SIZEOF (.dtors)) + SIZEOF (.eh_frame)) + SIZEOF (.gcc_except_table)) + SIZEOF (.iwram)) + SIZEOF (.data)) + SIZEOF (.iwram0)) + SIZEOF (.iwram1)) + SIZEOF (.iwram2)) + SIZEOF (.iwram3)) + SIZEOF (.iwram4)) + SIZEOF (.iwram5)) + SIZEOF (.iwram6)) + SIZEOF (.iwram7)) + SIZEOF (.iwram8)) + SIZEOF (.iwram9)) + SIZEOF (.ewram))
+                0x0000000002000d4c                __ewram_end = .
+                0x0000000002000d4c                __ewram_overlay_start = .
+
+.ewram0         0x0000000002000d4c        0x0 load address 0x00000000080b7358
+ *(.ewram0)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                0x00000000080b7358                PROVIDE (__load_start_ewram0 = LOADADDR (.ewram0))
+                0x00000000080b7358                PROVIDE (__load_stop_ewram0 = (LOADADDR (.ewram0) + SIZEOF (.ewram0)))
+
+.ewram1         0x0000000002000d4c        0x0
+ *(.ewram1)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram1 = LOADADDR (.ewram1))
+                [!provide]                        PROVIDE (__load_stop_ewram1 = (LOADADDR (.ewram1) + SIZEOF (.ewram1)))
+
+.ewram2         0x0000000002000d4c        0x0
+ *(.ewram2)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram2 = LOADADDR (.ewram2))
+                [!provide]                        PROVIDE (__load_stop_ewram2 = (LOADADDR (.ewram2) + SIZEOF (.ewram2)))
+
+.ewram3         0x0000000002000d4c        0x0
+ *(.ewram3)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram3 = LOADADDR (.ewram3))
+                [!provide]                        PROVIDE (__load_stop_ewram3 = (LOADADDR (.ewram3) + SIZEOF (.ewram3)))
+
+.ewram4         0x0000000002000d4c        0x0
+ *(.ewram4)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram4 = LOADADDR (.ewram4))
+                [!provide]                        PROVIDE (__load_stop_ewram4 = (LOADADDR (.ewram4) + SIZEOF (.ewram4)))
+
+.ewram5         0x0000000002000d4c        0x0
+ *(.ewram5)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram5 = LOADADDR (.ewram5))
+                [!provide]                        PROVIDE (__load_stop_ewram5 = (LOADADDR (.ewram5) + SIZEOF (.ewram5)))
+
+.ewram6         0x0000000002000d4c        0x0
+ *(.ewram6)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram6 = LOADADDR (.ewram6))
+                [!provide]                        PROVIDE (__load_stop_ewram6 = (LOADADDR (.ewram6) + SIZEOF (.ewram6)))
+
+.ewram7         0x0000000002000d4c        0x0
+ *(.ewram7)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram7 = LOADADDR (.ewram7))
+                [!provide]                        PROVIDE (__load_stop_ewram7 = (LOADADDR (.ewram7) + SIZEOF (.ewram7)))
+
+.ewram8         0x0000000002000d4c        0x0
+ *(.ewram8)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram8 = LOADADDR (.ewram8))
+                [!provide]                        PROVIDE (__load_stop_ewram8 = (LOADADDR (.ewram8) + SIZEOF (.ewram8)))
+
+.ewram9         0x0000000002000d4c        0x0
+ *(.ewram9)
+                0x0000000002000d4c                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__load_start_ewram9 = LOADADDR (.ewram9))
+                [!provide]                        PROVIDE (__load_stop_ewram9 = (LOADADDR (.ewram9) + SIZEOF (.ewram9)))
+                0x0000000002000d4c                __ewram_overlay_end = .
+                0x0000000002000d4c                __eheap_start = .
+                0x0000000002000d4c                _end = DEFINED (__gba_iwram_heap)?__iheap_start:.
+                0x0000000002000d4c                __end__ = _end
+                [!provide]                        PROVIDE (end = _end)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0xa7
+ *(.comment)
+ .comment       0x0000000000000000       0x59 ./build/sprite_data.o
+                                         0x5a (size before relaxing)
+ .comment       0x0000000000000059       0x5a ./build/sprite_map.o
+ .comment       0x0000000000000059       0x5a ./build/background_data.o
+ .comment       0x0000000000000059       0x5a ./build/background_map.o
+ .comment       0x0000000000000059       0x5a ./build/sound_map.o
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/build/gba.o
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/build/sprite.o
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/build/text.o
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/build/font.o
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/build/sound.o
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/build/background.o
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+ .comment       0x0000000000000059       0x5a /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_SFX.o)
+ .comment       0x0000000000000059       0x5a ./build/game.o
+ .comment       0x0000000000000059       0x4e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+                                         0x4f (size before relaxing)
+ .comment       0x00000000000000a7       0x4f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .comment       0x00000000000000a7       0x4f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.ARM.attributes
+                0x0000000000000000       0x2b
+ .ARM.attributes
+                0x0000000000000000       0x16 /opt/ghp_tools/gbalib/build/crt/crt0.o
+ .ARM.attributes
+                0x0000000000000016       0x14 ./build/AAS_Data.o
+ .ARM.attributes
+                0x000000000000002a       0x2c ./build/sprite_data.o
+ .ARM.attributes
+                0x0000000000000056       0x26 ./build/sprite_map.o
+ .ARM.attributes
+                0x000000000000007c       0x2c ./build/background_data.o
+ .ARM.attributes
+                0x00000000000000a8       0x26 ./build/background_map.o
+ .ARM.attributes
+                0x00000000000000ce       0x26 ./build/sound_map.o
+ .ARM.attributes
+                0x00000000000000f4       0x26 /opt/ghp_tools/gbalib/build/gba.o
+ .ARM.attributes
+                0x000000000000011a       0x26 /opt/ghp_tools/gbalib/build/sprite.o
+ .ARM.attributes
+                0x0000000000000140       0x26 /opt/ghp_tools/gbalib/build/text.o
+ .ARM.attributes
+                0x0000000000000166       0x2c /opt/ghp_tools/gbalib/build/font.o
+ .ARM.attributes
+                0x0000000000000192       0x26 /opt/ghp_tools/gbalib/build/sound.o
+ .ARM.attributes
+                0x00000000000001b8       0x26 /opt/ghp_tools/gbalib/build/background.o
+ .ARM.attributes
+                0x00000000000001de       0x16 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_ASM.o)
+ .ARM.attributes
+                0x00000000000001f4       0x26 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Main.o)
+ .ARM.attributes
+                0x000000000000021a       0x26 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_MOD.o)
+ .ARM.attributes
+                0x0000000000000240       0x2c /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Shared.o)
+ .ARM.attributes
+                0x000000000000026c       0x26 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_SFX.o)
+ .ARM.attributes
+                0x0000000000000292       0x16 /opt/ghp_tools/gbalib/src/apex-audio-system/build/aas/lib/libAAS.a(AAS_Mixer.o)
+ .ARM.attributes
+                0x00000000000002a8       0x26 ./build/game.o
+ .ARM.attributes
+                0x00000000000002ce       0x1c /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .ARM.attributes
+                0x00000000000002ea       0x1c /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x0000000000000306       0x1c /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x0000000000000322       0x1c /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x000000000000033e       0x30 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .ARM.attributes
+                0x000000000000036e       0x2a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x0000000000000398       0x1a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .ARM.attributes
+                0x00000000000003b2       0x2a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x268
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x18 ./build/sprite_data.o
+ .debug_aranges
+                0x0000000000000018       0x20 ./build/sprite_map.o
+ .debug_aranges
+                0x0000000000000038       0x18 ./build/background_data.o
+ .debug_aranges
+                0x0000000000000050       0x20 ./build/background_map.o
+ .debug_aranges
+                0x0000000000000070       0x20 ./build/sound_map.o
+ .debug_aranges
+                0x0000000000000090       0x20 /opt/ghp_tools/gbalib/build/gba.o
+ .debug_aranges
+                0x00000000000000b0       0x20 /opt/ghp_tools/gbalib/build/sprite.o
+ .debug_aranges
+                0x00000000000000d0       0x20 /opt/ghp_tools/gbalib/build/text.o
+ .debug_aranges
+                0x00000000000000f0       0x18 /opt/ghp_tools/gbalib/build/font.o
+ .debug_aranges
+                0x0000000000000108       0x20 /opt/ghp_tools/gbalib/build/sound.o
+ .debug_aranges
+                0x0000000000000128       0x20 /opt/ghp_tools/gbalib/build/background.o
+ .debug_aranges
+                0x0000000000000148       0x28 ./build/game.o
+ .debug_aranges
+                0x0000000000000170       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_aranges
+                0x0000000000000190       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_aranges
+                0x00000000000001b0       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .debug_aranges
+                0x00000000000001d0       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_aranges
+                0x00000000000001f0       0x18 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .debug_aranges
+                0x0000000000000208       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_aranges
+                0x0000000000000228       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .debug_aranges
+                0x0000000000000248       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0xaf35
+ *(.debug_info)
+ .debug_info    0x0000000000000000       0x90 ./build/sprite_data.o
+ .debug_info    0x0000000000000090      0xfba ./build/sprite_map.o
+ .debug_info    0x000000000000104a       0xcd ./build/background_data.o
+ .debug_info    0x0000000000001117      0xde8 ./build/background_map.o
+ .debug_info    0x0000000000001eff      0xacb ./build/sound_map.o
+ .debug_info    0x00000000000029ca     0x1085 /opt/ghp_tools/gbalib/build/gba.o
+ .debug_info    0x0000000000003a4f      0xe68 /opt/ghp_tools/gbalib/build/sprite.o
+ .debug_info    0x00000000000048b7     0x1017 /opt/ghp_tools/gbalib/build/text.o
+ .debug_info    0x00000000000058ce       0x59 /opt/ghp_tools/gbalib/build/font.o
+ .debug_info    0x0000000000005927      0xcc5 /opt/ghp_tools/gbalib/build/sound.o
+ .debug_info    0x00000000000065ec      0xb2c /opt/ghp_tools/gbalib/build/background.o
+ .debug_info    0x0000000000007118     0x1658 ./build/game.o
+ .debug_info    0x0000000000008770       0x26 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_info    0x0000000000008796       0x26 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x00000000000087bc       0x26 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x00000000000087e2       0x26 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_info    0x0000000000008808      0xe91 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .debug_info    0x0000000000009699      0xf35 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_info    0x000000000000a5ce       0x26 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .debug_info    0x000000000000a5f4      0x941 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.debug_abbrev   0x0000000000000000     0x20ec
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x5f ./build/sprite_data.o
+ .debug_abbrev  0x000000000000005f      0x370 ./build/sprite_map.o
+ .debug_abbrev  0x00000000000003cf       0x65 ./build/background_data.o
+ .debug_abbrev  0x0000000000000434      0x342 ./build/background_map.o
+ .debug_abbrev  0x0000000000000776      0x27e ./build/sound_map.o
+ .debug_abbrev  0x00000000000009f4      0x37e /opt/ghp_tools/gbalib/build/gba.o
+ .debug_abbrev  0x0000000000000d72      0x2ee /opt/ghp_tools/gbalib/build/sprite.o
+ .debug_abbrev  0x0000000000001060      0x28a /opt/ghp_tools/gbalib/build/text.o
+ .debug_abbrev  0x00000000000012ea       0x47 /opt/ghp_tools/gbalib/build/font.o
+ .debug_abbrev  0x0000000000001331      0x294 /opt/ghp_tools/gbalib/build/sound.o
+ .debug_abbrev  0x00000000000015c5      0x25c /opt/ghp_tools/gbalib/build/background.o
+ .debug_abbrev  0x0000000000001821      0x2bc ./build/game.o
+ .debug_abbrev  0x0000000000001add       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_abbrev  0x0000000000001af1       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x0000000000001b05       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x0000000000001b19       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_abbrev  0x0000000000001b2d      0x1b6 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .debug_abbrev  0x0000000000001ce3      0x223 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_abbrev  0x0000000000001f06       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .debug_abbrev  0x0000000000001f1a      0x1d2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.debug_line     0x0000000000000000     0x2508
+ *(.debug_line)
+ .debug_line    0x0000000000000000       0x45 ./build/sprite_data.o
+ .debug_line    0x0000000000000045      0x373 ./build/sprite_map.o
+ .debug_line    0x00000000000003b8       0x4d ./build/background_data.o
+ .debug_line    0x0000000000000405      0x388 ./build/background_map.o
+ .debug_line    0x000000000000078d      0x18c ./build/sound_map.o
+ .debug_line    0x0000000000000919      0x4fa /opt/ghp_tools/gbalib/build/gba.o
+ .debug_line    0x0000000000000e13      0x252 /opt/ghp_tools/gbalib/build/sprite.o
+ .debug_line    0x0000000000001065      0x2da /opt/ghp_tools/gbalib/build/text.o
+ .debug_line    0x000000000000133f       0x2b /opt/ghp_tools/gbalib/build/font.o
+ .debug_line    0x000000000000136a      0x22a /opt/ghp_tools/gbalib/build/sound.o
+ .debug_line    0x0000000000001594      0x19e /opt/ghp_tools/gbalib/build/background.o
+ .debug_line    0x0000000000001732      0x3af ./build/game.o
+ .debug_line    0x0000000000001ae1       0xf2 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_line    0x0000000000001bd3      0x166 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x0000000000001d39      0x175 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x0000000000001eae       0x6e /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x0000000000001f1c      0x14b /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+ .debug_line    0x0000000000002067      0x263 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_line    0x00000000000022ca       0xf9 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .debug_line    0x00000000000023c3      0x145 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.debug_frame    0x0000000000000000      0x92c
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x6c ./build/sprite_map.o
+ .debug_frame   0x000000000000006c       0x58 ./build/background_map.o
+ .debug_frame   0x00000000000000c4       0x44 ./build/sound_map.o
+ .debug_frame   0x0000000000000108      0x1ec /opt/ghp_tools/gbalib/build/gba.o
+ .debug_frame   0x00000000000002f4      0x11c /opt/ghp_tools/gbalib/build/sprite.o
+ .debug_frame   0x0000000000000410      0x180 /opt/ghp_tools/gbalib/build/text.o
+ .debug_frame   0x0000000000000590      0x108 /opt/ghp_tools/gbalib/build/sound.o
+ .debug_frame   0x0000000000000698       0x50 /opt/ghp_tools/gbalib/build/background.o
+ .debug_frame   0x00000000000006e8       0x58 ./build/game.o
+ .debug_frame   0x0000000000000740       0x30 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_frame   0x0000000000000770       0xac /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x000000000000081c       0x50 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x000000000000086c       0x24 /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x0000000000000890       0x3c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00000000000008cc       0x40 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+ .debug_frame   0x000000000000090c       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.debug_str      0x0000000000000000     0x149a
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x151 ./build/sprite_data.o
+                                        0x15e (size before relaxing)
+ .debug_str     0x0000000000000151      0x520 ./build/sprite_map.o
+                                        0x6f5 (size before relaxing)
+ .debug_str     0x0000000000000671       0x52 ./build/background_data.o
+                                        0x17c (size before relaxing)
+ .debug_str     0x00000000000006c3       0x6f ./build/background_map.o
+                                        0x680 (size before relaxing)
+ .debug_str     0x0000000000000732       0xc7 ./build/sound_map.o
+                                        0x65a (size before relaxing)
+ .debug_str     0x00000000000007f9      0x2d2 /opt/ghp_tools/gbalib/build/gba.o
+                                        0x84e (size before relaxing)
+ .debug_str     0x0000000000000acb       0x9a /opt/ghp_tools/gbalib/build/sprite.o
+                                        0x724 (size before relaxing)
+ .debug_str     0x0000000000000b65       0xfb /opt/ghp_tools/gbalib/build/text.o
+                                        0x72b (size before relaxing)
+ .debug_str     0x0000000000000c60        0xb /opt/ghp_tools/gbalib/build/font.o
+                                        0x107 (size before relaxing)
+ .debug_str     0x0000000000000c6b       0xa6 /opt/ghp_tools/gbalib/build/sound.o
+                                        0x6aa (size before relaxing)
+ .debug_str     0x0000000000000d11       0x3c /opt/ghp_tools/gbalib/build/background.o
+                                        0x633 (size before relaxing)
+ .debug_str     0x0000000000000d4d      0x227 ./build/game.o
+                                        0x9c4 (size before relaxing)
+ .debug_str     0x0000000000000f74       0x8b /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldf3.o)
+ .debug_str     0x0000000000000fff       0x8b /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_addsubdf3.o)
+ .debug_str     0x0000000000000fff       0x8b /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_muldivdf3.o)
+ .debug_str     0x0000000000000fff       0x8b /usr/lib/gcc/arm-none-eabi/9.2.1/libgcc.a(_arm_fixdfsi.o)
+ .debug_str     0x0000000000000fff      0x376 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-ctype_.o)
+                                        0x892 (size before relaxing)
+ .debug_str     0x0000000000001375       0xb4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+                                        0x8cc (size before relaxing)
+ .debug_str     0x0000000000001429       0x39 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strcmp.o)
+                                         0x93 (size before relaxing)
+ .debug_str     0x0000000000001462       0x38 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+                                        0x590 (size before relaxing)
+
+.debug_loc      0x0000000000000000      0xdc8
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x4a0 ./build/sprite_map.o
+ .debug_loc     0x00000000000004a0      0x322 ./build/background_map.o
+ .debug_loc     0x00000000000007c2       0x77 ./build/sound_map.o
+ .debug_loc     0x0000000000000839      0x37f ./build/game.o
+ .debug_loc     0x0000000000000bb8      0x1eb /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_loc     0x0000000000000da3       0x25 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.stack          0x0000000000080000        0x0
+                0x0000000000080000                _stack = .
+ *(.stack)
+OUTPUT(build/game.tmp elf32-littlearm)
+LOAD linker stubs
+
+.debug_ranges   0x0000000000000000      0x258
+ .debug_ranges  0x0000000000000000       0x80 ./build/sprite_map.o
+ .debug_ranges  0x0000000000000080      0x148 ./build/background_map.o
+ .debug_ranges  0x00000000000001c8       0x50 ./build/sound_map.o
+ .debug_ranges  0x0000000000000218       0x18 /opt/ghp_tools/gbalib/build/text.o
+ .debug_ranges  0x0000000000000230       0x18 ./build/game.o
+ .debug_ranges  0x0000000000000248       0x10 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/libc.a(lib_a-strlen-stub.o)
