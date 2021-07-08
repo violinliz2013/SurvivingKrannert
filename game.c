@@ -227,20 +227,19 @@ int main()
         }
     }
     //Win
-    if (winGame = true)
-    {
-        drawBackground(winscreen, origin);
-        drawFilledRectangle(black, box1Pos, box1Size);
-        drawFilledRectangle(black, box2Pos, box2Size);
-        drawHollowRectangle(white, box1Pos, box1Size);
-        drawHollowRectangle(white, box2Pos, box2Size);
-        drawText("SUCCESS", white, text1Pos);
-        drawText("Press A to start again", white, text2Pos);
-        if (wasAPressed == true)
-        {
-            winGame == false;
-            startGame();
-            wait(59.5);
-            winGame == true;
+    if (winGame = true) {
+    drawBackground(winscreen, origin);
+    drawFilledRectangle(black, box1Pos, box1Size);
+    drawFilledRectangle(black, box2Pos, box2Size);
+    drawHollowRectangle(white, box1Pos, box1Size);
+    drawHollowRectangle(white, box2Pos, box2Size);
+    drawText("SUCCESS", white, text1Pos);
+    drawText("Press A to start again", white, text2Pos);
+    if (wasAPressed == true) {
+        winGame == false;
+        startGame();
+        wait(59.5);
+        winGame == true;
         }
     }
+}
