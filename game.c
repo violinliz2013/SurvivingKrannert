@@ -8,7 +8,7 @@ void startGame() {
     Size startTextSize = {30, 20};
     Size spriteSize = {32, 32};
     Sprite mike = createSprite ("mikesprite", spriteSize);
-    drawBackground("krannerthall", origin);
+    drawBackground(krannerthall, origin);
     showSprite(mike);
     updatePosition(mike, mikeStart);
     drawText("Ready?", black, startTextPos);
@@ -59,7 +59,7 @@ int main()
     Color black = createColor(0, 0, 0);
 
     //TitleScreen
-    drawBackground("titlescreen", origin);
+    drawBackground(titlescreen, origin);
     wait(2);
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
@@ -201,7 +201,7 @@ int main()
     if (health <= 0)
     {
         gameStop = true;
-        drawBackground("losescreen", origin);
+        drawBackground(losescreen, origin);
         drawFilledRectangle(black, box1Pos, box1Size);
         drawFilledRectangle(black, box2Pos, box2Size);
         drawHollowRectangle(white, box1Pos, box1Size);
@@ -217,8 +217,8 @@ int main()
     bool wasSelectPressed = wasButtonPressed(SELECT);
     if (wasStartPressed == true)
     {
-        drawBackground(, origin);
-        hideSprite();
+        drawBackground(pausescreen, origin);
+        hideSprite(mikesprite);
     }
     //Win
 }
