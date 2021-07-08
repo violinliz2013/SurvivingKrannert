@@ -41,7 +41,6 @@ int main()
 
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
-    Position center = {120, 80};
     Position text1Pos = {110, 20};
     Position text2Pos = {40, 140};
     Position box1Pos = {105, 15};
@@ -58,11 +57,11 @@ int main()
     Sprite plum = createSprite("plum", spriteSize);
     Sprite carrot = createSprite("realcarrot", spriteSize);
     Sprite watermelon = createSprite("watermelon", spriteSize);
-    Background krannertHall = createBackground("krannertHall");
-    Background loseScreen = createBackground("loseScreen");
-    Background pauseScreen = createBackground("pauseScreen");
-    Background titleScreen = createBackground("titleScreen");
-    Background winScreen = createBackground("winScreen");
+    Background krannertHall = createBackground("krannerthall");
+    Background loseScreen = createBackground("losescreen");
+    Background pauseScreen = createBackground("pausescreen");
+    Background titleScreen = createBackground("titlescreen");
+    Background winScreen = createBackground("winscreen");
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
 
@@ -72,8 +71,6 @@ int main()
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
-    updatePosition(mike, center);
-    showSprite(mike);
     bool wasBPressed = isButtonDown(B);
     bool winGame = false;
     if (wasBPressed == true) {
@@ -86,7 +83,7 @@ int main()
     bool isUpPressed = isButtonDown(UP);
     bool isDownPressed = isButtonDown(DOWN);
     bool gameStop = isSpriteHidden(mike);
-    while (gameStop == false && mikePos.y <= 140 && mikePos.y >= 20)
+    while (gameStop == false)
     {
         if (isUpPressed == true)
         {
@@ -220,7 +217,7 @@ int main()
         drawText("FAILED", white, text1Pos);
         drawText("Press A to start again", white, text2Pos);
         if (wasAPressed == true) {
-            startGame();
+
         }
     }
     //Pause Menu Code
@@ -230,16 +227,6 @@ int main()
     {
         drawBackground(pauseScreen, origin);
         hideSprite(mike);
-        drawBackground(loseScreen, origin);
-        drawFilledRectangle(black, box1Pos, box1Size);
-        drawFilledRectangle(black, box2Pos, box2Size);
-        drawHollowRectangle(white, box1Pos, box1Size);
-        drawHollowRectangle(white, box2Pos, box2Size);
-        drawText("PAUSE", white, text1Pos);
-        drawText("Press SELECT to start again", white, text2Pos);
-        if (wasSelectPressed == true) {
-            startGame();
-        }
     }
     //Win
     if (winGame = true) {
