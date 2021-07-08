@@ -3,7 +3,7 @@
 
 // This is cursed. I apologize
 
-#define NUM_BACKGROUNDS 5
+#define NUM_BACKGROUNDS 6
 
 static Background backgrounds[NUM_BACKGROUNDS];
 static int curr_image = 0;
@@ -22,14 +22,16 @@ static void addImageData(const u16 *background_data) {
 }
 
 void populateBackgrounds() {
-     addImage(TITLESCREEN_WIDTH, TITLESCREEN_HEIGHT, "TITLESCREEN");
+     addImage(KRANNERTHALL_WIDTH, KRANNERTHALL_HEIGHT, "KRANNERTHALL");
+  addImage(TITLESCREEN_WIDTH, TITLESCREEN_HEIGHT, "TITLESCREEN");
   addImage(PAUSESCREEN_WIDTH, PAUSESCREEN_HEIGHT, "PAUSESCREEN");
   addImage(KRANNERTHALL_WIDTH, KRANNERTHALL_HEIGHT, "KRANNERTHALL");
   addImage(LOSESCREEN_WIDTH, LOSESCREEN_HEIGHT, "LOSESCREEN");
   addImage(WINSCREEN_WIDTH, WINSCREEN_HEIGHT, "WINSCREEN");
 
     curr_image = 0;
-     addImageData(titlescreen);
+     addImageData(krannerthall);
+  addImageData(titlescreen);
   addImageData(pausescreen);
   addImageData(krannerthall);
   addImageData(losescreen);

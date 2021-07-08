@@ -39,6 +39,7 @@ int main()
 
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
+    Position center = {120, 80};
     Position text1Pos = {110, 20};
     Position text2Pos = {40, 140};
     Position box1Pos = {105, 15};
@@ -64,6 +65,8 @@ int main()
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
+    updatePosition(mike, center);
+    showSprite(mike);
     bool wasBPressed = isButtonDown(B);
     if (wasBPressed == true) {
         startGame();
@@ -75,7 +78,7 @@ int main()
     bool isUpPressed = isButtonDown(UP);
     bool isDownPressed = isButtonDown(DOWN);
     bool gameStop = isSpriteHidden(mike);
-    while (gameStop == false)
+    while (gameStop == false && mikePos.y <= 140 && mikePos.y >= 20)
     {
         if (isUpPressed == true)
         {
@@ -194,7 +197,7 @@ int main()
     //Health and Lose Screen
     bool wasAPressed = isButtonDown(A);
     int health = 5;
-    if (cherryCollision == true || cherryCollision == true || bulletCollision3 == true || bulletCollision4 == true || bulletCollision5 == true)
+    if (cherryCollision == true || cherryCollision == true || plumCollision == true || carrotCollision == true || watermelonCollision == true)
     {
         health -= 1;
     }
@@ -209,7 +212,7 @@ int main()
         drawText("FAILED", white, text1Pos);
         drawText("Press A to start again", white, text2Pos);
         if (wasAPressed == true) {
-
+            startGame();
         }
     }
     //Pause Menu Code
@@ -217,8 +220,19 @@ int main()
     bool wasSelectPressed = wasButtonPressed(SELECT);
     if (wasStartPressed == true)
     {
-        drawBackground(, origin);
-        hideSprite();
+        drawBackground("pauseScreen", origin);
+        hideSprite(mike);
+        drawBackground("loseScreen", origin);
+        drawFilledRectangle(black, box1Pos, box1Size);
+        drawFilledRectangle(black, box2Pos, box2Size);
+        drawHollowRectangle(white, box1Pos, box1Size);
+        drawHollowRectangle(white, box2Pos, box2Size);
+        drawText("PAUSE", white, text1Pos);
+        drawText("Press SELECT to start again", white, text2Pos);
+        if (wasSelectPressed == true) {
+            startGame()
+        }
     }
     //Win
+    
 }
