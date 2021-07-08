@@ -8,8 +8,7 @@ void startGame() {
     Size startTextSize = {30, 20};
     Size spriteSize = {32, 32};
     Sprite mike = createSprite ("mikesprite", spriteSize);
-    Background krannertHall = createBackground("krannertHall"); 
-    drawBackground(krannertHall, origin);
+    drawBackground("krannerthall", origin);
     showSprite(mike);
     updatePosition(mike, mikeStart);
     drawText("Ready?", black, startTextPos);
@@ -56,26 +55,24 @@ int main()
     Sprite plum = createSprite("plum", spriteSize);
     Sprite carrot = createSprite("realcarrot", spriteSize);
     Sprite watermelon = createSprite("watermelon", spriteSize);
-    Background krannertHall = createBackground("krannerthall");
-    Background loseScreen = createBackground("losescreen");
-    Background pauseScreen = createBackground("pausescreen");
-    Background titleScreen = createBackground("titlescreen");
-    Background winScreen = createBackground("winscreen");
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
 
     //TitleScreen
-    drawBackground(titleScreen, origin);
+    drawBackground("titlescreen", origin);
     wait(2);
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
     bool wasBPressed = isButtonDown(B);
-    bool winGame = false;
     if (wasBPressed == true) {
         startGame();
+<<<<<<< HEAD
         wait(59.5);
         winGame = true;
+=======
+        wait(60);
+>>>>>>> e0c77b4e734dc2ecdfeb6af5c46ad59b0950f0c2
     }
 
     //Buttons, Sprite Movement
@@ -202,14 +199,14 @@ int main()
     //Health and Lose Screen
     bool wasAPressed = isButtonDown(A);
     int health = 5;
-    if (cherryCollision == true || cherryCollision == true || plumCollision == true || carrotCollision == true || watermelonCollision == true)
+    if (cherryCollision == true || cherryCollision == true || bulletCollision3 == true || bulletCollision4 == true || bulletCollision5 == true)
     {
         health -= 1;
     }
     if (health <= 0)
     {
         gameStop = true;
-        drawBackground(loseScreen, origin);
+        drawBackground("losescreen", origin);
         drawFilledRectangle(black, box1Pos, box1Size);
         drawFilledRectangle(black, box2Pos, box2Size);
         drawHollowRectangle(white, box1Pos, box1Size);
@@ -225,20 +222,8 @@ int main()
     bool wasSelectPressed = wasButtonPressed(SELECT);
     if (wasStartPressed == true)
     {
-        drawBackground(pauseScreen, origin);
-        hideSprite(mike);
+        drawBackground(, origin);
+        hideSprite();
     }
     //Win
-    if (winGame = true) {
-        drawBackground(winScreen, origin);
-        drawFilledRectangle(black, box1Pos, box1Size);
-        drawFilledRectangle(black, box2Pos, box2Size);
-        drawHollowRectangle(white, box1Pos, box1Size);
-        drawHollowRectangle(white, box2Pos, box2Size);
-        drawText("SUCCESS", white, text1Pos);
-        drawText("Press A to start again", white, text2Pos);
-        if (wasAPressed == true) {
-            startGame();
-        }
-    }
 }
