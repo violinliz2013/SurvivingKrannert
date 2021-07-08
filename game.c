@@ -1,6 +1,6 @@
 #include <gbalib.h>
 void startGame() {
-    Color krannertwall ={252, 131, 67};
+    Color krannertwall =createColor(252, 131, 67);
     Color black = createColor(0, 0, 0);
     Position mikeStart = {40, 80};
     Position startTextPos = {200, 20};
@@ -37,7 +37,7 @@ int main()
 {
     //Sound
     Sound music = createSound("oldvideogamemusic");
-    playSOund(music, true);
+    playSound(music, true);
 
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
