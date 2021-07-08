@@ -8,7 +8,8 @@ void startGame() {
     Size startTextSize = {30, 20};
     Size spriteSize = {32, 32};
     Sprite mike = createSprite ("mikesprite", spriteSize);
-    drawBackground("KrannertHall", origin);
+    Background krannertHall = createBackground("krannertHall");
+    drawBackground(krannertHall, origin);
     showSprite(mike);
     updatePosition(mike, mikeStart);
     drawText("Ready?", black, startTextPos);
@@ -56,11 +57,16 @@ int main()
     Sprite plum = createSprite("plum", spriteSize);
     Sprite carrot = createSprite("realcarrot", spriteSize);
     Sprite watermelon = createSprite("watermelon", spriteSize);
+    Background krannertHall = createBackground("krannertHall");
+    Background loseScreen = createBackground("loseScreen");
+    Background pauseScreen = createBackground("pauseScreen");
+    Background titleScreen = createBackground("titleScreen");
+    Background winScreen = createBackground("winScreen");
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
 
     //TitleScreen
-    drawBackground("titleScreen", origin);
+    drawBackground(titleScreen, origin);
     wait(2);
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
@@ -204,7 +210,7 @@ int main()
     if (health <= 0)
     {
         gameStop = true;
-        drawBackground("loseScreen", origin);
+        drawBackground(loseScreen, origin);
         drawFilledRectangle(black, box1Pos, box1Size);
         drawFilledRectangle(black, box2Pos, box2Size);
         drawHollowRectangle(white, box1Pos, box1Size);
@@ -220,9 +226,9 @@ int main()
     bool wasSelectPressed = wasButtonPressed(SELECT);
     if (wasStartPressed == true)
     {
-        drawBackground("pauseScreen", origin);
+        drawBackground(pauseScreen, origin);
         hideSprite(mike);
-        drawBackground("loseScreen", origin);
+        drawBackground(loseScreen, origin);
         drawFilledRectangle(black, box1Pos, box1Size);
         drawFilledRectangle(black, box2Pos, box2Size);
         drawHollowRectangle(white, box1Pos, box1Size);
@@ -230,9 +236,9 @@ int main()
         drawText("PAUSE", white, text1Pos);
         drawText("Press SELECT to start again", white, text2Pos);
         if (wasSelectPressed == true) {
-            startGame()
+            startGame();
         }
     }
     //Win
-    
+
 }
