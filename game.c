@@ -52,7 +52,7 @@ int main()
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
-    Sprite mike = createSprite("mikesprite", spriteSize);
+    Sprite mike;
     Sprite cherry = createSprite("realcherry", spriteSize);
     Sprite chili = createSprite("realchili", spriteSize);
     Sprite plum = createSprite("plum", spriteSize);
