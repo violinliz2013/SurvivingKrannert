@@ -9,7 +9,8 @@ void startGame()
     Position origin = {0, 0};
     Size startTextSize = {40, 20};
     Size spriteSize = {32, 32};
-    mike = createSprite("mikesprite", spriteSize);
+    Size mikeSize = {17, 30};
+    mike = createSprite("mikesprite", mikeSize);
     Background krannertHall = createBackground("krannertHall");
     drawBackground(krannertHall, origin);
     showSprite(mike);
@@ -43,13 +44,14 @@ int main()
 
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
-    Position text1Pos = {110, 20};
+    Position text1Pos = {100, 20};
     Position text2Pos = {40, 140};
-    Position box1Pos = {105, 15};
+    Position box1Pos = {95, 15};
     Position box2Pos = {35, 135};
     Position ts1Pos = {60, 20};
     Position ts2Pos = {65, 140};
     int randomY = randomInteger(0, 120);
+    int health = 5;
     Position bulletRespawn = {250, randomY};
     Position cherryPos = bulletRespawn;
     Position chiliPos = bulletRespawn;
@@ -57,10 +59,11 @@ int main()
     Position carrotPos = bulletRespawn;
     Position watermelonPos = bulletRespawn;
     Size spriteSize = {32, 32};
-    Size box1Size = {30, 17};
+    Size cherrySize = {14, 22};
+    Size box1Size = {50, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
-    Sprite cherry = createSprite("realcherry", spriteSize);
+    Sprite cherry = createSprite("realcherry", cherrySize);
     Sprite chili = createSprite("realchili", spriteSize);
     Sprite plum = createSprite("plum", spriteSize);
     Sprite carrot = createSprite("realcarrot", spriteSize);
@@ -118,16 +121,34 @@ int main()
         cherryPos = getPosition(cherry);
         cherryPos.x -= 2;
         updatePosition(cherry, cherryPos);
-        if (cherryPos.x <= -20)
+        if (cherryPos.x <= 0)
         {
             updatePosition(cherry, bulletRespawn);
         }
         cherryCollision = checkCollisionSprite(mike, cherry);
         if (cherryCollision == true)
         {
+            health -= 1;
             hideSprite(cherry);
             updatePosition(cherry, bulletRespawn);
             showSprite(cherry);
+        }
+        if (health <= 0) {
+            drawBackground(losescreen, origin);
+            hideSprite(mike);
+            hideSprite(cherry);
+            drawFilledRectangle(black, box1Pos, box1Size);
+            drawFilledRectangle(black, box2Pos, box2Size);
+            drawHollowRectangle(white, box1Pos, box1Size);
+            drawHollowRectangle(white, box2Pos, box2Size);
+            drawText("FAILED", white, text1Pos);
+            drawText("Press A to start again", white, text2Pos);
+            bool wasAPressed = isButtonDown(A);
+            if (wasAPressed == true)
+            {
+                startGame();
+                health = 5;
+            }
         }
         updateScreen();
     }
