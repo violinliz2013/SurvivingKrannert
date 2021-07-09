@@ -1,4 +1,5 @@
 #include <gbalib.h>
+Sprite mike;
 void startGame()
 {
     Color krannertwall = createColor(252, 131, 67);
@@ -8,7 +9,7 @@ void startGame()
     Position origin = {0, 0};
     Size startTextSize = {40, 20};
     Size spriteSize = {32, 32};
-    Sprite mike = createSprite("mikesprite", spriteSize);
+    mike = createSprite("mikesprite", spriteSize);
     Background krannertHall = createBackground("krannertHall");
     drawBackground(krannertHall, origin);
     showSprite(mike);
@@ -52,7 +53,10 @@ int main()
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
+<<<<<<< HEAD
     Sprite mike;
+=======
+>>>>>>> 448e6a8b02e86462c66b9ee96dd839897e4adec1
     Sprite cherry = createSprite("realcherry", spriteSize);
     Sprite chili = createSprite("realchili", spriteSize);
     Sprite plum = createSprite("plum", spriteSize);
@@ -88,7 +92,6 @@ int main()
     Position mikePos = {40, 80};
     bool isUpPressed = false;
     bool isDownPressed = false;
-    gaming = isSpriteHidden(mike);
     while (gaming == true)
     {
         isUpPressed = isButtonDown(UP);
@@ -110,7 +113,7 @@ int main()
 
     //Bullet Movement, Bullet Collision
     int randomY = randomInteger(0, 120);
-    Position bulletRespawn = {250, randomY};
+    Position bulletRespawn = {200, randomY};
     Position cherryPos = bulletRespawn;
     Position chiliPos = bulletRespawn;
     Position plumPos = bulletRespawn;
@@ -118,9 +121,17 @@ int main()
     Position watermelonPos = bulletRespawn;
 
     while (true) {
+        int randomRespawn = randomInteger(0, 120);
+        Position bulletRespawn = {200, randomRespawn};
+        showSprite(cherry);
         cherryPos = getPosition(cherry);
-        cherryPos.x -= 5;
+        cherryPos.x -= 2;
         updatePosition(cherry, cherryPos);
+        if (cherryPos.x <= -20)
+        {
+            updatePosition(cherry, bulletRespawn);
+        }
+        updateScreen();
     }
 
     /*while (gaming == true)
