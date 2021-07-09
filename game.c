@@ -6,7 +6,7 @@ void startGame()
     Position mikeStart = {40, 80};
     Position startTextPos = {200, 20};
     Position origin = {0, 0};
-    Size startTextSize = {30, 20};
+    Size startTextSize = {40, 20};
     Size spriteSize = {32, 32};
     Sprite mike = createSprite("mikesprite", spriteSize);
     Background krannertHall = createBackground("krannertHall");
@@ -31,6 +31,7 @@ void startGame()
     wait(0.5);
     drawText("Go!", black, startTextPos);
     wait(0.5);
+    bool gaming = true;
     drawFilledRectangle(krannertwall, startTextPos, startTextSize);
 }
 int main()
@@ -72,6 +73,7 @@ int main()
     wait(2);
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
     bool wasBPressed = false;
+    bool gaming = false;
     while (wasBPressed == false)
     {
         wasBPressed = isButtonDown(B);
@@ -86,9 +88,8 @@ int main()
     Position mikePos = {40, 80};
     bool isUpPressed = false;
     bool isDownPressed = false;
-    bool gameStop = false;
-    gameStop = isSpriteHidden(mike);
-    while (true)
+    gaming = isSpriteHidden(mike);
+    while (gaming == true)
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
@@ -99,7 +100,6 @@ int main()
             updatePosition(mike, mikePos);
         }
         if (isDownPressed == true)
-            ;
         {
             Position mikePos = getPosition(mike);
             mikePos.y += 1;
@@ -117,7 +117,13 @@ int main()
     Position carrotPos = bulletRespawn;
     Position watermelonPos = bulletRespawn;
 
-    while (gameStop == false)
+    while (true) {
+        cherryPos = getPosition(cherry);
+        cherryPos.x -= 5;
+        updatePosition(cherry, cherryPos);
+    }
+
+    /*while (gaming == true)
     {
         cherryPos = getPosition(cherry);
         cherryPos.x -= 5;
@@ -135,14 +141,14 @@ int main()
         watermelonPos.x -= 5;
         updatePosition(watermelon, watermelonPos);
         updateScreen();
-    }
+    }*/
 
     bool cherryCollision = checkCollisionSprite(mike, cherry);
     bool chiliCollision = checkCollisionSprite(mike, chili);
     bool plumCollision = checkCollisionSprite(mike, plum);
     bool carrotCollision = checkCollisionSprite(mike, carrot);
     bool watermelonCollision = checkCollisionSprite(mike, watermelon);
-    while (gameStop == false)
+    while (gaming == true)
     {
         if (cherryCollision == true)
         {
@@ -182,7 +188,7 @@ int main()
         updateScreen();
     }
 
-    while (gameStop == false)
+    while (gaming == true)
     {
         if (cherryPos.x <= -40)
         {
@@ -215,7 +221,7 @@ int main()
     }
     if (health <= 0)
     {
-        gameStop = true;
+        gaming = false;
         drawBackground(losescreen, origin);
         drawFilledRectangle(black, box1Pos, box1Size);
         drawFilledRectangle(black, box2Pos, box2Size);
@@ -225,12 +231,12 @@ int main()
         drawText("Press A to start again", white, text2Pos);
         if (wasAPressed == true)
         {
-            gameStop = false;
+            gaming = true;
             startGame();
         }
     }
     wait(59.5);
-    gameStop = true;
+    gaming = false;
 
     //Win
 }
