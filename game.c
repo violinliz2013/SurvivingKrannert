@@ -37,7 +37,8 @@ void startGame()
 }
 int main()
 {
-    //Sound
+    while (true)
+    {//Sound
     Sound music = createSound("oldvideogamemusic");
     playSound(music, true);
 
@@ -53,10 +54,7 @@ int main()
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
-<<<<<<< HEAD
     Sprite mike;
-=======
->>>>>>> 448e6a8b02e86462c66b9ee96dd839897e4adec1
     Sprite cherry = createSprite("realcherry", spriteSize);
     Sprite chili = createSprite("realchili", spriteSize);
     Sprite plum = createSprite("plum", spriteSize);
@@ -78,7 +76,7 @@ int main()
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
     bool wasBPressed = false;
     bool gaming = false;
-    while (wasBPressed == false)
+    if (wasBPressed == false)
     {
         wasBPressed = isButtonDown(B);
         updateScreen();
@@ -92,7 +90,7 @@ int main()
     Position mikePos = {40, 80};
     bool isUpPressed = false;
     bool isDownPressed = false;
-    while (gaming == true)
+    if (gaming == true)
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
@@ -120,8 +118,9 @@ int main()
     Position carrotPos = bulletRespawn;
     Position watermelonPos = bulletRespawn;
 
-    while (true) {
+    if (true) {
         int randomRespawn = randomInteger(0, 120);
+        Sprite cherry;
         Position bulletRespawn = {200, randomRespawn};
         showSprite(cherry);
         cherryPos = getPosition(cherry);
@@ -159,7 +158,7 @@ int main()
     bool plumCollision = checkCollisionSprite(mike, plum);
     bool carrotCollision = checkCollisionSprite(mike, carrot);
     bool watermelonCollision = checkCollisionSprite(mike, watermelon);
-    while (gaming == true)
+    if (gaming == true)
     {
         if (cherryCollision == true)
         {
@@ -199,7 +198,7 @@ int main()
         updateScreen();
     }
 
-    while (gaming == true)
+    if (gaming == true)
     {
         if (cherryPos.x <= -40)
         {
@@ -251,3 +250,5 @@ int main()
 
     //Win
 }
+}
+    
