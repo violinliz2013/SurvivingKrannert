@@ -1,13 +1,14 @@
 #include <gbalib.h>
-void startGame() {
-    Color krannertwall =createColor(252, 131, 67);
+void startGame()
+{
+    Color krannertwall = createColor(252, 131, 67);
     Color black = createColor(0, 0, 0);
     Position mikeStart = {40, 80};
     Position startTextPos = {200, 20};
     Position origin = {0, 0};
     Size startTextSize = {30, 20};
     Size spriteSize = {32, 32};
-    Sprite mike = createSprite ("mikesprite", spriteSize);
+    Sprite mike = createSprite("mikesprite", spriteSize);
     Background krannertHall = createBackground("krannertHall");
     drawBackground(krannertHall, origin);
     showSprite(mike);
@@ -50,7 +51,7 @@ int main()
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
-    Sprite mike = createSprite ("mikesprite", spriteSize);
+    Sprite mike = createSprite("mikesprite", spriteSize);
     Sprite cherry = createSprite("realcherry", spriteSize);
     Sprite chili = createSprite("realchili", spriteSize);
     Sprite plum = createSprite("plum", spriteSize);
@@ -70,31 +71,37 @@ int main()
     animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
     wait(2);
     animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
-    bool wasBPressed = isButtonDown(B);
-    bool winGame = false;
-    if (wasBPressed == true) {
-        startGame();
-        wait(59.5);
-        winGame == true;
+    bool wasBPressed = false;
+    while (wasBPressed == false)
+    {
+        wasBPressed = isButtonDown(B);
+        updateScreen();
+        if (wasBPressed == true)
+        {
+            startGame();
+        }
     }
 
     //Buttons, Sprite Movement
     Position mikePos = {40, 80};
-    bool isUpPressed = isButtonDown(UP);
-    bool isDownPressed = isButtonDown(DOWN);
-    bool gameStop = isSpriteHidden(mike);
-    while (gameStop == false)
+    bool isUpPressed = false;
+    bool isDownPressed = false;
+    bool gameStop = false;
+    gameStop = isSpriteHidden(mike);
+    while (true)
     {
+        isUpPressed = isButtonDown(UP);
+        isDownPressed = isButtonDown(DOWN);
         if (isUpPressed == true)
         {
-            mikePos = getPosition(mike);
+            Position mikePos = getPosition(mike);
             mikePos.y -= 1;
             updatePosition(mike, mikePos);
         }
         if (isDownPressed == true)
             ;
         {
-            mikePos = getPosition(mike);
+            Position mikePos = getPosition(mike);
             mikePos.y += 1;
             updatePosition(mike, mikePos);
         }
@@ -216,27 +223,14 @@ int main()
         drawHollowRectangle(white, box2Pos, box2Size);
         drawText("FAILED", white, text1Pos);
         drawText("Press A to start again", white, text2Pos);
-        if (wasAPressed == true) {
-            winGame == false;
+        if (wasAPressed == true)
+        {
+            gameStop = false;
             startGame();
-            wait(59.5);
-            winGame == true;
         }
     }
+    wait(59.5);
+    gameStop = true;
+
     //Win
-    if (winGame = true) {
-    drawBackground(winscreen, origin);
-    drawFilledRectangle(black, box1Pos, box1Size);
-    drawFilledRectangle(black, box2Pos, box2Size);
-    drawHollowRectangle(white, box1Pos, box1Size);
-    drawHollowRectangle(white, box2Pos, box2Size);
-    drawText("SUCCESS", white, text1Pos);
-    drawText("Press A to start again", white, text2Pos);
-    if (wasAPressed == true) {
-        winGame == false;
-        startGame();
-        wait(59.5);
-        winGame == true;
-        }
-    }
 }
