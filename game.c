@@ -49,6 +49,13 @@ int main()
     Position box2Pos = {35, 135};
     Position ts1Pos = {60, 20};
     Position ts2Pos = {65, 140};
+    int randomY = randomInteger(0, 120);
+    Position bulletRespawn = {250, randomY};
+    Position cherryPos = bulletRespawn;
+    Position chiliPos = bulletRespawn;
+    Position plumPos = bulletRespawn;
+    Position carrotPos = bulletRespawn;
+    Position watermelonPos = bulletRespawn;
     Size spriteSize = {32, 32};
     Size box1Size = {30, 17};
     Size box2Size = {170, 17};
@@ -65,6 +72,7 @@ int main()
     Background winscreen = createBackground("winscreen");
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
+    bool cherryCollision = false;
 
     //TitleScreen
     drawBackground(titlescreen, origin);
@@ -88,7 +96,7 @@ int main()
     Position mikePos = {40, 80};
     bool isUpPressed = false;
     bool isDownPressed = false;
-    while (gaming == true)
+    while (true)
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
@@ -104,19 +112,30 @@ int main()
             mikePos.y += 1;
             updatePosition(mike, mikePos);
         }
+        int randomRespawn = randomInteger(0, 120);
+        Position bulletRespawn = {250, randomRespawn};
+        showSprite(cherry);
+        cherryPos = getPosition(cherry);
+        cherryPos.x -= 2;
+        updatePosition(cherry, cherryPos);
+        if (cherryPos.x <= -20)
+        {
+            updatePosition(cherry, bulletRespawn);
+        }
+        cherryCollision = checkCollisionSprite(mike, cherry);
+        if (cherryCollision == true)
+        {
+            hideSprite(cherry);
+            updatePosition(cherry, bulletRespawn);
+            showSprite(cherry);
+        }
         updateScreen();
     }
 
     //Bullet Movement, Bullet Collision
-    int randomY = randomInteger(0, 120);
-    Position bulletRespawn = {200, randomY};
-    Position cherryPos = bulletRespawn;
-    Position chiliPos = bulletRespawn;
-    Position plumPos = bulletRespawn;
-    Position carrotPos = bulletRespawn;
-    Position watermelonPos = bulletRespawn;
+    
 
-    while (true) {
+    /*while (true) {
         int randomRespawn = randomInteger(0, 120);
         Position bulletRespawn = {200, randomRespawn};
         showSprite(cherry);
@@ -128,7 +147,7 @@ int main()
             updatePosition(cherry, bulletRespawn);
         }
         updateScreen();
-    }
+    }*/
 
     /*while (gaming == true)
     {
@@ -150,7 +169,7 @@ int main()
         updateScreen();
     }*/
 
-    bool cherryCollision = checkCollisionSprite(mike, cherry);
+    /*bool cherryCollision = checkCollisionSprite(mike, cherry);
     bool chiliCollision = checkCollisionSprite(mike, chili);
     bool plumCollision = checkCollisionSprite(mike, plum);
     bool carrotCollision = checkCollisionSprite(mike, carrot);
@@ -217,10 +236,10 @@ int main()
         {
             updatePosition(watermelon, bulletRespawn);
         }
-    }
+    }*/
 
     //Health and Lose Screen
-    bool wasAPressed = isButtonDown(A);
+    /*bool wasAPressed = isButtonDown(A);
     int health = 5;
     if (cherryCollision == true || cherryCollision == true || plumCollision == true || carrotCollision == true || watermelonCollision == true)
     {
@@ -241,7 +260,7 @@ int main()
             gaming = true;
             startGame();
         }
-    }
+    }*/
     wait(59.5);
     gaming = false;
 
