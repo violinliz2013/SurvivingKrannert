@@ -9,7 +9,8 @@ void startGame()
     Position origin = {0, 0};
     Size startTextSize = {40, 20};
     Size spriteSize = {32, 32};
-    mike = createSprite("mikesprite", spriteSize);
+    Size mikeSize = {17, 30};
+    mike = createSprite("mikesprite", mikeSize);
     Background krannertHall = createBackground("krannertHall");
     drawBackground(krannertHall, origin);
     showSprite(mike);
@@ -42,7 +43,44 @@ int main()
     {
         //Sound
 
+<<<<<<< HEAD
         playSound(music, true);
+=======
+    //Backgrounds, Sprites, Gifs, Colors
+    Position origin = {0, 0};
+    Position text1Pos = {100, 20};
+    Position text2Pos = {40, 140};
+    Position box1Pos = {95, 15};
+    Position box2Pos = {35, 135};
+    Position ts1Pos = {60, 20};
+    Position ts2Pos = {65, 140};
+    int randomY = randomInteger(0, 120);
+    int health = 5;
+    Position bulletRespawn = {250, randomY};
+    Position cherryPos = bulletRespawn;
+    Position chiliPos = bulletRespawn;
+    Position plumPos = bulletRespawn;
+    Position carrotPos = bulletRespawn;
+    Position watermelonPos = bulletRespawn;
+    Size spriteSize = {32, 32};
+    Size cherrySize = {14, 22};
+    Size box1Size = {50, 17};
+    Size box2Size = {170, 17};
+    Size text1Size = {200, 17};
+    Sprite cherry = createSprite("realcherry", cherrySize);
+    Sprite chili = createSprite("realchili", spriteSize);
+    Sprite plum = createSprite("plum", spriteSize);
+    Sprite carrot = createSprite("realcarrot", spriteSize);
+    Sprite watermelon = createSprite("watermelon", spriteSize);
+    Background krannertHall = createBackground("krannerthall");
+    Background losescreen = createBackground("losescreen");
+    Background pausescreen = createBackground("pausescreen");
+    Background titlescreen = createBackground("titlescreen");
+    Background winscreen = createBackground("winscreen");
+    Color white = createColor(255, 255, 255);
+    Color black = createColor(0, 0, 0);
+    bool cherryCollision = false;
+>>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
 
         //Backgrounds, Sprites, Gifs, Colors
         Position origin = {0, 0};
@@ -87,6 +125,7 @@ int main()
                 startGame();
             }
         }
+<<<<<<< HEAD
 
         //Buttons, Sprite Movement
         Position mikePos = {40, 80};
@@ -110,6 +149,24 @@ int main()
             }
             int randomRespawn = randomInteger(0, 120);
             Position bulletRespawn = {250, randomRespawn};
+=======
+        int randomRespawn = randomInteger(0, 120);
+        Position bulletRespawn = {250, randomRespawn};
+        showSprite(cherry);
+        cherryPos = getPosition(cherry);
+        cherryPos.x -= 2;
+        updatePosition(cherry, cherryPos);
+        if (cherryPos.x <= 0)
+        {
+            updatePosition(cherry, bulletRespawn);
+        }
+        cherryCollision = checkCollisionSprite(mike, cherry);
+        if (cherryCollision == true)
+        {
+            health -= 1;
+            hideSprite(cherry);
+            updatePosition(cherry, bulletRespawn);
+>>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
             showSprite(cherry);
             cherryPos = getPosition(cherry);
             cherryPos.x -= 2;
@@ -127,6 +184,28 @@ int main()
             }
             updateScreen();
         }
+<<<<<<< HEAD
+=======
+        if (health <= 0) {
+            drawBackground(losescreen, origin);
+            hideSprite(mike);
+            hideSprite(cherry);
+            drawFilledRectangle(black, box1Pos, box1Size);
+            drawFilledRectangle(black, box2Pos, box2Size);
+            drawHollowRectangle(white, box1Pos, box1Size);
+            drawHollowRectangle(white, box2Pos, box2Size);
+            drawText("FAILED", white, text1Pos);
+            drawText("Press A to start again", white, text2Pos);
+            bool wasAPressed = isButtonDown(A);
+            if (wasAPressed == true)
+            {
+                startGame();
+                health = 5;
+            }
+        }
+        updateScreen();
+    }
+>>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
 
         //Bullet Movement, Bullet Collision
         int randomY = randomInteger(0, 120);
