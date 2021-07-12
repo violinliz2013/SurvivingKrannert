@@ -4,10 +4,11 @@ void startGame()
 {
     Color krannertwall = createColor(252, 131, 67);
     Color black = createColor(0, 0, 0);
+    Color red = createColor(255, 0, 0);
     Position mikeStart = {40, 80};
     Position startTextPos = {200, 20};
     Position origin = {0, 0};
-    Size startTextSize = {40, 20};
+    Size startTextSize = {39, 20};
     Size spriteSize = {32, 32};
     Size mikeSize = {17, 30};
     mike = createSprite("mikesprite", mikeSize);
@@ -54,11 +55,11 @@ int main()
     int health = 5;
     int bulletsDodged = 0;
     Position bulletRespawn = {250, randomY};
-    Position cherryPos = {250, randomY};
-    Position chiliPos = {260, randomY};
-    Position plumPos = {270, randomY};
-    Position carrotPos = {280, randomY};
-    Position watermelonPos = {290, randomY};
+    Position cherryPos = {250, 10};
+    Position chiliPos = {200, 120};
+    Position plumPos = {150, 10};
+    Position carrotPos = {100, 120};
+    Position watermelonPos = {50, 10};
     Size spriteSize = {32, 32};
     Size cherrySize = {14, 22};
     Size chiliSize = {23, 19};
@@ -80,6 +81,7 @@ int main()
     Background winscreen = createBackground("winscreen");
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
+    Color red = createColor(255, 0, 0);
     bool cherryCollision = false;
     bool chiliCollision = false;
     bool plumCollision = false;
