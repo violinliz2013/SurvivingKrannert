@@ -85,6 +85,11 @@ int main()
     bool plumCollision = false;
     bool carrotCollision = false;
     bool watermelonCollision = false;
+    updatePosition(cherry, cherryPos);
+    updatePosition(chili, chiliPos);
+    updatePosition(plum, plumPos);
+    updatePosition(carrot, carrotPos);
+    updatePosition(watermelon, watermelonPos);
 
     //TitleScreen
     drawBackground(titlescreen, origin);
@@ -225,162 +230,13 @@ int main()
             drawHollowRectangle(white, box2Pos, box2Size);
             drawText("FAILED", white, text1Pos);
             drawText("Press A to try again", white, text2Pos);
-            health = 5;
             bool wasAPressed = isButtonDown(A);
             if (wasAPressed == true)
             {
+                health = 5;
                 startGame();
             }
         }
-        /*if (bulletsDodged >= 10) {
-            drawBackground(winscreen, origin);
-            hideSprite(mike);
-            hideSprite(cherry);
-            hideSprite(chili);
-            hideSprite(plum);
-            hideSprite(carrot);
-            hideSprite(watermelon);
-            drawFilledRectangle(black, box1Pos, box1Size);
-            drawFilledRectangle(black, box2Pos, box2Size);
-            drawHollowRectangle(white, box1Pos, box1Size);
-            drawHollowRectangle(white, box2Pos, box2Size);
-            drawText("SUCCESS", white, text1Pos);
-            drawText("Press A to play again", white, text2Pos);
-        }*/
-        updateScreen();
+    updateScreen();
     }
-
-    //Bullet Movement, Bullet Collision
-    
-
-    /*while (true) {
-        int randomRespawn = randomInteger(0, 120);
-        Position bulletRespawn = {200, randomRespawn};
-        showSprite(cherry);
-        cherryPos = getPosition(cherry);
-        cherryPos.x -= 2;
-        updatePosition(cherry, cherryPos);
-        if (cherryPos.x <= -20)
-        {
-            updatePosition(cherry, bulletRespawn);
-        }
-        updateScreen();
-    }*/
-
-    /*while (gaming == true)
-    {
-        cherryPos = getPosition(cherry);
-        cherryPos.x -= 5;
-        updatePosition(cherry, cherryPos);
-        chiliPos = getPosition(chili);
-        chiliPos.x -= 5;
-        updatePosition(chili, chiliPos);
-        plumPos = getPosition(plum);
-        plumPos.x -= 5;
-        updatePosition(plum, plumPos);
-        carrotPos = getPosition(carrot);
-        carrotPos.x -= 5;
-        updatePosition(carrot, carrotPos);
-        watermelonPos = getPosition(watermelon);
-        watermelonPos.x -= 5;
-        updatePosition(watermelon, watermelonPos);
-        updateScreen();
-    }*/
-
-    /*bool cherryCollision = checkCollisionSprite(mike, cherry);
-    bool chiliCollision = checkCollisionSprite(mike, chili);
-    bool plumCollision = checkCollisionSprite(mike, plum);
-    bool carrotCollision = checkCollisionSprite(mike, carrot);
-    bool watermelonCollision = checkCollisionSprite(mike, watermelon);
-    while (gaming == true)
-    {
-        if (cherryCollision == true)
-        {
-            hideSprite(cherry);
-            updatePosition(cherry, bulletRespawn);
-            wait(1);
-            showSprite(cherry);
-        }
-        if (chiliCollision == true)
-        {
-            hideSprite(chili);
-            updatePosition(chili, bulletRespawn);
-            wait(1);
-            showSprite(chili);
-        }
-        if (plumCollision == true)
-        {
-            hideSprite(plum);
-            updatePosition(plum, bulletRespawn);
-            wait(1);
-            showSprite(plum);
-        }
-        if (carrotCollision == true)
-        {
-            hideSprite(carrot);
-            updatePosition(carrot, bulletRespawn);
-            wait(1);
-            showSprite(carrot);
-        }
-        if (watermelonCollision == true)
-        {
-            hideSprite(watermelon);
-            updatePosition(watermelon, bulletRespawn);
-            wait(1);
-            showSprite(watermelon);
-        }
-        updateScreen();
-    }
-
-    while (gaming == true)
-    {
-        if (cherryPos.x <= -40)
-        {
-            updatePosition(cherry, bulletRespawn);
-        }
-        if (chiliPos.x <= -40)
-        {
-            updatePosition(chili, bulletRespawn);
-        }
-        if (plumPos.x <= -40)
-        {
-            updatePosition(plum, bulletRespawn);
-        }
-        if (carrotPos.x <= -40)
-        {
-            updatePosition(carrot, bulletRespawn);
-        }
-        if (watermelonPos.x <= -40)
-        {
-            updatePosition(watermelon, bulletRespawn);
-        }
-    }*/
-
-    //Health and Lose Screen
-    /*bool wasAPressed = isButtonDown(A);
-    int health = 5;
-    if (cherryCollision == true || cherryCollision == true || plumCollision == true || carrotCollision == true || watermelonCollision == true)
-    {
-        health -= 1;
-    }
-    if (health <= 0)
-    {
-        gaming = false;
-        drawBackground(losescreen, origin);
-        drawFilledRectangle(black, box1Pos, box1Size);
-        drawFilledRectangle(black, box2Pos, box2Size);
-        drawHollowRectangle(white, box1Pos, box1Size);
-        drawHollowRectangle(white, box2Pos, box2Size);
-        drawText("FAILED", white, text1Pos);
-        drawText("Press A to start again", white, text2Pos);
-        if (wasAPressed == true)
-        {
-            gaming = true;
-            startGame();
-        }
-    }*/
-    wait(59.5);
-    gaming = false;
-
-    //Win
 }
