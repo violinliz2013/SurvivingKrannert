@@ -56,22 +56,27 @@ int main()
     Position ts2Pos = {65, 140};
     int randomY = randomInteger(0, 120);
     int health = 5;
+    int bulletsDodged = 0;
     Position bulletRespawn = {250, randomY};
-    Position cherryPos = bulletRespawn;
-    Position chiliPos = bulletRespawn;
-    Position plumPos = bulletRespawn;
-    Position carrotPos = bulletRespawn;
-    Position watermelonPos = bulletRespawn;
+    Position cherryPos = {250, randomY};
+    Position chiliPos = {260, randomY};
+    Position plumPos = {270, randomY};
+    Position carrotPos = {280, randomY};
+    Position watermelonPos = {290, randomY};
     Size spriteSize = {32, 32};
     Size cherrySize = {14, 22};
+    Size chiliSize = {23, 19};
+    Size plumSize = {20, 20};
+    Size carrotSize = {27, 21};
+    Size watermelonSize = {24, 22};
     Size box1Size = {50, 17};
     Size box2Size = {170, 17};
     Size text1Size = {200, 17};
     Sprite cherry = createSprite("realcherry", cherrySize);
-    Sprite chili = createSprite("realchili", spriteSize);
-    Sprite plum = createSprite("plum", spriteSize);
-    Sprite carrot = createSprite("realcarrot", spriteSize);
-    Sprite watermelon = createSprite("watermelon", spriteSize);
+    Sprite chili = createSprite("realchili", chiliSize);
+    Sprite plum = createSprite("plum", plumSize);
+    Sprite carrot = createSprite("realcarrot", carrotSize);
+    Sprite watermelon = createSprite("watermelon", watermelonSize);
     Background krannertHall = createBackground("krannerthall");
     Background losescreen = createBackground("losescreen");
     Background pausescreen = createBackground("pausescreen");
@@ -80,7 +85,14 @@ int main()
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
     bool cherryCollision = false;
+<<<<<<< HEAD
 >>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
+=======
+    bool chiliCollision = false;
+    bool plumCollision = false;
+    bool carrotCollision = false;
+    bool watermelonCollision = false;
+>>>>>>> c4b672208cc4c7aecaf7dbaa316c99b2862cc873
 
         //Backgrounds, Sprites, Gifs, Colors
         Position origin = {0, 0};
@@ -154,10 +166,11 @@ int main()
         Position bulletRespawn = {250, randomRespawn};
         showSprite(cherry);
         cherryPos = getPosition(cherry);
-        cherryPos.x -= 2;
+        cherryPos.x -= 1;
         updatePosition(cherry, cherryPos);
         if (cherryPos.x <= 0)
         {
+            bulletsDodged += 1;
             updatePosition(cherry, bulletRespawn);
         }
         cherryCollision = checkCollisionSprite(mike, cherry);
@@ -185,24 +198,114 @@ int main()
             updateScreen();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+        showSprite(chili);
+        chiliPos = getPosition(chili);
+        chiliPos.x -= 1;
+        updatePosition(chili, chiliPos);
+        if (chiliPos.x <= 0)
+        {
+            bulletsDodged += 1;
+            updatePosition(chili, bulletRespawn);
+        }
+        chiliCollision = checkCollisionSprite(mike, chili);
+        if (chiliCollision == true)
+        {
+            health -= 1;
+            hideSprite(chili);
+            updatePosition(chili, bulletRespawn);
+            showSprite(chili);
+        }
+        showSprite(plum);
+        plumPos = getPosition(plum);
+        plumPos.x -= 1;
+        updatePosition(plum, plumPos);
+        if (plumPos.x <= 0)
+        {
+            bulletsDodged += 1;
+            updatePosition(plum, bulletRespawn);
+        }
+        plumCollision = checkCollisionSprite(mike, plum);
+        if (plumCollision == true)
+        {
+            health -= 1;
+            hideSprite(plum);
+            updatePosition(plum, bulletRespawn);
+            showSprite(plum);
+        }
+        showSprite(carrot);
+        carrotPos = getPosition(carrot);
+        carrotPos.x -= 1;
+        updatePosition(carrot, carrotPos);
+        if (carrotPos.x <= 0)
+        {
+            bulletsDodged += 1;
+            updatePosition(carrot, bulletRespawn);
+        }
+        carrotCollision = checkCollisionSprite(mike, carrot);
+        if (carrotCollision == true)
+        {
+            health -= 1;
+            hideSprite(carrot);
+            updatePosition(carrot, bulletRespawn);
+            showSprite(carrot);
+        }
+        showSprite(watermelon);
+        watermelonPos = getPosition(watermelon);
+        watermelonPos.x -= 1;
+        updatePosition(watermelon, watermelonPos);
+        if (watermelonPos.x <= 0)
+        {
+            bulletsDodged += 1;
+            updatePosition(watermelon, bulletRespawn);
+        }
+        watermelonCollision = checkCollisionSprite(mike, watermelon);
+        if (watermelonCollision == true)
+        {
+            health -= 1;
+            hideSprite(watermelon);
+            updatePosition(watermelon, bulletRespawn);
+            showSprite(watermelon);
+        }
+>>>>>>> c4b672208cc4c7aecaf7dbaa316c99b2862cc873
         if (health <= 0) {
             drawBackground(losescreen, origin);
             hideSprite(mike);
             hideSprite(cherry);
+            hideSprite(chili);
+            hideSprite(plum);
+            hideSprite(carrot);
+            hideSprite(watermelon);
             drawFilledRectangle(black, box1Pos, box1Size);
             drawFilledRectangle(black, box2Pos, box2Size);
             drawHollowRectangle(white, box1Pos, box1Size);
             drawHollowRectangle(white, box2Pos, box2Size);
             drawText("FAILED", white, text1Pos);
-            drawText("Press A to start again", white, text2Pos);
+            drawText("Press A to try again", white, text2Pos);
+            health = 5;
             bool wasAPressed = isButtonDown(A);
             if (wasAPressed == true)
             {
                 startGame();
-                health = 5;
             }
         }
+        /*if (bulletsDodged >= 10) {
+            drawBackground(winscreen, origin);
+            hideSprite(mike);
+            hideSprite(cherry);
+            hideSprite(chili);
+            hideSprite(plum);
+            hideSprite(carrot);
+            hideSprite(watermelon);
+            drawFilledRectangle(black, box1Pos, box1Size);
+            drawFilledRectangle(black, box2Pos, box2Size);
+            drawHollowRectangle(white, box1Pos, box1Size);
+            drawHollowRectangle(white, box2Pos, box2Size);
+            drawText("SUCCESS", white, text1Pos);
+            drawText("Press A to play again", white, text2Pos);
+        }*/
         updateScreen();
     }
 >>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
