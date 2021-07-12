@@ -89,6 +89,11 @@ int main()
     bool plumCollision = false;
     bool carrotCollision = false;
     bool watermelonCollision = false;
+    updatePosition(cherry, cherryPos);
+    updatePosition(chili, chiliPos);
+    updatePosition(plum, plumPos);
+    updatePosition(carrot, carrotPos);
+    updatePosition(watermelon, watermelonPos);
 
 
         //Backgrounds, Sprites, Gifs, Colors
@@ -275,30 +280,16 @@ int main()
             drawHollowRectangle(white, box2Pos, box2Size);
             drawText("FAILED", white, text1Pos);
             drawText("Press A to try again", white, text2Pos);
-            health = 5;
             bool wasAPressed = isButtonDown(A);
             if (wasAPressed == true)
             {
+                health = 5;
                 startGame();
             }
         }
-        /*if (bulletsDodged >= 10) {
-            drawBackground(winscreen, origin);
-            hideSprite(mike);
-            hideSprite(cherry);
-            hideSprite(chili);
-            hideSprite(plum);
-            hideSprite(carrot);
-            hideSprite(watermelon);
-            drawFilledRectangle(black, box1Pos, box1Size);
-            drawFilledRectangle(black, box2Pos, box2Size);
-            drawHollowRectangle(white, box1Pos, box1Size);
-            drawHollowRectangle(white, box2Pos, box2Size);
-            drawText("SUCCESS", white, text1Pos);
-            drawText("Press A to play again", white, text2Pos);
-        }*/
-        updateScreen();
+    updateScreen();
     }
+<<<<<<< HEAD
 
 
         //Bullet Movement, Bullet Collision
@@ -440,3 +431,6 @@ int main()
         
     }
 }
+=======
+}
+>>>>>>> dc76818abc3f9486cac65adf0af06d75fa955293
