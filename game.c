@@ -43,9 +43,9 @@ int main()
     {
         //Sound
 
-<<<<<<< HEAD
+
         playSound(music, true);
-=======
+
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
     Position text1Pos = {100, 20};
@@ -85,17 +85,13 @@ int main()
     Color white = createColor(255, 255, 255);
     Color black = createColor(0, 0, 0);
     bool cherryCollision = false;
-<<<<<<< HEAD
->>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
-=======
     bool chiliCollision = false;
     bool plumCollision = false;
     bool carrotCollision = false;
     bool watermelonCollision = false;
->>>>>>> c4b672208cc4c7aecaf7dbaa316c99b2862cc873
+
 
         //Backgrounds, Sprites, Gifs, Colors
-        Position origin = {0, 0};
         Position text1Pos = {110, 20};
         Position text2Pos = {40, 140};
         Position box1Pos = {105, 15};
@@ -136,8 +132,7 @@ int main()
             {
                 startGame();
             }
-        }
-<<<<<<< HEAD
+        
 
         //Buttons, Sprite Movement
         Position mikePos = {40, 80};
@@ -161,7 +156,7 @@ int main()
             }
             int randomRespawn = randomInteger(0, 120);
             Position bulletRespawn = {250, randomRespawn};
-=======
+
         int randomRespawn = randomInteger(0, 120);
         Position bulletRespawn = {250, randomRespawn};
         showSprite(cherry);
@@ -179,7 +174,6 @@ int main()
             health -= 1;
             hideSprite(cherry);
             updatePosition(cherry, bulletRespawn);
->>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
             showSprite(cherry);
             cherryPos = getPosition(cherry);
             cherryPos.x -= 2;
@@ -197,10 +191,7 @@ int main()
             }
             updateScreen();
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
+
         showSprite(chili);
         chiliPos = getPosition(chili);
         chiliPos.x -= 1;
@@ -269,7 +260,7 @@ int main()
             updatePosition(watermelon, bulletRespawn);
             showSprite(watermelon);
         }
->>>>>>> c4b672208cc4c7aecaf7dbaa316c99b2862cc873
+
         if (health <= 0) {
             drawBackground(losescreen, origin);
             hideSprite(mike);
@@ -308,7 +299,7 @@ int main()
         }*/
         updateScreen();
     }
->>>>>>> f352d8496f1ff794d9104ffc927671706bf98f22
+
 
         //Bullet Movement, Bullet Collision
         int randomY = randomInteger(0, 120);
@@ -446,9 +437,6 @@ int main()
                 startGame();
             }
         }
-        wait(59.5);
-        gaming = false;
-
-        //Win
+        
     }
 }

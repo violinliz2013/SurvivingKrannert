@@ -1,7 +1,7 @@
 /*
  * Exported with nin10kit v1.8
  * Invocation command was nin10kit --mode=3 ./build/background_data ./backgrounds/krannerthall.png ./backgrounds/titlescreen.png ./backgrounds/losescreen.png ./backgrounds/winscreen.png 
- * Time-stamp: Friday 07/09/2021, 16:33:22
+ * Time-stamp: Monday 07/12/2021, 15:02:28
  * 
  * Image Information
  * -----------------
