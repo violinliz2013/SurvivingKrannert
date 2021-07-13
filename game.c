@@ -38,13 +38,9 @@ void startGame()
 }
 int main()
 {
+    //Sound
     Sound music = createSound("oldvideogamemusic");
-    while (true)
-    {
-        //Sound
-
-
-        playSound(music, true);
+    playSound(music, true);
 
     //Backgrounds, Sprites, Gifs, Colors
     Position origin = {0, 0};
@@ -95,73 +91,45 @@ int main()
     updatePosition(carrot, carrotPos);
     updatePosition(watermelon, watermelonPos);
 
-
-        //Backgrounds, Sprites, Gifs, Colors
-        Position text1Pos = {110, 20};
-        Position text2Pos = {40, 140};
-        Position box1Pos = {105, 15};
-        Position box2Pos = {35, 135};
-        Position ts1Pos = {60, 20};
-        Position ts2Pos = {65, 140};
-        Size spriteSize = {32, 32};
-        Size box1Size = {30, 17};
-        Size box2Size = {170, 17};
-        Size text1Size = {200, 17};
-        Sprite mike;
-        Sprite cherry = createSprite("realcherry", spriteSize);
-        Sprite chili = createSprite("realchili", spriteSize);
-        Sprite plum = createSprite("plum", spriteSize);
-        Sprite carrot = createSprite("realcarrot", spriteSize);
-        Sprite watermelon = createSprite("watermelon", spriteSize);
-        Background krannertHall = createBackground("krannerthall");
-        Background losescreen = createBackground("losescreen");
-        Background pausescreen = createBackground("pausescreen");
-        Background titlescreen = createBackground("titlescreen");
-        Background winscreen = createBackground("winscreen");
-        Color white = createColor(255, 255, 255);
-        Color black = createColor(0, 0, 0);
-
-        //TitleScreen
-        drawBackground(titlescreen, origin);
-        wait(2);
-        animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
-        wait(2);
-        animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
-        bool wasBPressed = false;
-        bool gaming = false;
-        while (wasBPressed == false)
+    //TitleScreen
+    drawBackground(titlescreen, origin);
+    wait(2);
+    animateTextSlow("Surviving Krannert", black, ts1Pos, text1Size);
+    wait(2);
+    animateTextSlow("Press B to begin", black, ts2Pos, text1Size);
+    bool wasBPressed = false;
+    bool gaming = false;
+    while (wasBPressed == false)
+    {
+        wasBPressed = isButtonDown(B);
+        updateScreen();
+        if (wasBPressed == true)
         {
-            wasBPressed = isButtonDown(B);
-            updateScreen();
-            if (wasBPressed == true)
-            {
-                startGame();
-            }
-        
+            startGame();
+            bulletsDodged = 0;
+        }
+    }
 
-        //Buttons, Sprite Movement
-        Position mikePos = {40, 80};
-        bool isUpPressed = false;
-        bool isDownPressed = false;
-        while (gaming == true)
+    //Buttons, Sprite Movement
+    Position mikePos = {40, 80};
+    bool isUpPressed = false;
+    bool isDownPressed = false;
+    while (true)
+    {
+        isUpPressed = isButtonDown(UP);
+        isDownPressed = isButtonDown(DOWN);
+        if (isUpPressed == true)
         {
-            isUpPressed = isButtonDown(UP);
-            isDownPressed = isButtonDown(DOWN);
-            if (isUpPressed == true)
-            {
-                Position mikePos = getPosition(mike);
-                mikePos.y -= 1;
-                updatePosition(mike, mikePos);
-            }
-            if (isDownPressed == true)
-            {
-                Position mikePos = getPosition(mike);
-                mikePos.y += 1;
-                updatePosition(mike, mikePos);
-            }
-            int randomRespawn = randomInteger(0, 120);
-            Position bulletRespawn = {250, randomRespawn};
-
+            Position mikePos = getPosition(mike);
+            mikePos.y -= 1;
+            updatePosition(mike, mikePos);
+        }
+        if (isDownPressed == true)
+        {
+            Position mikePos = getPosition(mike);
+            mikePos.y += 1;
+            updatePosition(mike, mikePos);
+        }
         int randomRespawn = randomInteger(0, 120);
         Position bulletRespawn = {250, randomRespawn};
         showSprite(cherry);
@@ -180,23 +148,7 @@ int main()
             hideSprite(cherry);
             updatePosition(cherry, bulletRespawn);
             showSprite(cherry);
-            cherryPos = getPosition(cherry);
-            cherryPos.x -= 2;
-            updatePosition(cherry, cherryPos);
-            if (cherryPos.x <= -20)
-            {
-                updatePosition(cherry, bulletRespawn);
-            }
-            cherryCollision = checkCollisionSprite(mike, cherry);
-            if (cherryCollision == true)
-            {
-                hideSprite(cherry);
-                updatePosition(cherry, bulletRespawn);
-                showSprite(cherry);
-            }
-            updateScreen();
         }
-
         showSprite(chili);
         chiliPos = getPosition(chili);
         chiliPos.x -= 1;
@@ -265,8 +217,8 @@ int main()
             updatePosition(watermelon, bulletRespawn);
             showSprite(watermelon);
         }
-
-        if (health <= 0) {
+        if (health <= 0)
+        {
             drawBackground(losescreen, origin);
             hideSprite(mike);
             hideSprite(cherry);
@@ -287,150 +239,30 @@ int main()
                 startGame();
             }
         }
-    updateScreen();
-    }
-<<<<<<< HEAD
-
-
-        //Bullet Movement, Bullet Collision
-        int randomY = randomInteger(0, 120);
-        Position bulletRespawn = {200, randomY};
-        Position cherryPos = bulletRespawn;
-        Position chiliPos = bulletRespawn;
-        Position plumPos = bulletRespawn;
-        Position carrotPos = bulletRespawn;
-        Position watermelonPos = bulletRespawn;
-
-        while (true)
+        if (bulletsDodged == 20)
         {
-            int randomRespawn = randomInteger(0, 120);
-            Position bulletRespawn = {200, randomRespawn};
-            showSprite(cherry);
-            cherryPos = getPosition(cherry);
-            cherryPos.x -= 2;
-            updatePosition(cherry, cherryPos);
-            if (cherryPos.x <= -20)
+            health = 5;
+            bool cherryCollision = false;
+            bool chiliCollision = false;
+            bool plumCollision = false;
+            bool carrotCollision = false;
+            bool watermelonCollision = false;
+            drawBackground(winscreen, origin);
+            hideSprite(cherry);
+            hideSprite(watermelon);
+            hideSprite(carrot);
+            hideSprite(plum);
+            hideSprite(chili);
+            while (wasBPressed == false)
             {
-                updatePosition(cherry, bulletRespawn);
+                wasBPressed = isButtonDown(B);
+                updateScreen();
+                if (wasBPressed == true)
+                {
+                    startGame();
+                }
             }
-            updateScreen();
         }
-
-        /*while (gaming == true)
-    {
-        cherryPos = getPosition(cherry);
-        cherryPos.x -= 5;
-        updatePosition(cherry, cherryPos);
-        chiliPos = getPosition(chili);
-        chiliPos.x -= 5;
-        updatePosition(chili, chiliPos);
-        plumPos = getPosition(plum);
-        plumPos.x -= 5;
-        updatePosition(plum, plumPos);
-        carrotPos = getPosition(carrot);
-        carrotPos.x -= 5;
-        updatePosition(carrot, carrotPos);
-        watermelonPos = getPosition(watermelon);
-        watermelonPos.x -= 5;
-        updatePosition(watermelon, watermelonPos);
         updateScreen();
-    }*/
-
-        bool cherryCollision = checkCollisionSprite(mike, cherry);
-        bool chiliCollision = checkCollisionSprite(mike, chili);
-        bool plumCollision = checkCollisionSprite(mike, plum);
-        bool carrotCollision = checkCollisionSprite(mike, carrot);
-        bool watermelonCollision = checkCollisionSprite(mike, watermelon);
-        while (gaming == true)
-        {
-            if (cherryCollision == true)
-            {
-                hideSprite(cherry);
-                updatePosition(cherry, bulletRespawn);
-                wait(1);
-                showSprite(cherry);
-            }
-            if (chiliCollision == true)
-            {
-                hideSprite(chili);
-                updatePosition(chili, bulletRespawn);
-                wait(1);
-                showSprite(chili);
-            }
-            if (plumCollision == true)
-            {
-                hideSprite(plum);
-                updatePosition(plum, bulletRespawn);
-                wait(1);
-                showSprite(plum);
-            }
-            if (carrotCollision == true)
-            {
-                hideSprite(carrot);
-                updatePosition(carrot, bulletRespawn);
-                wait(1);
-                showSprite(carrot);
-            }
-            if (watermelonCollision == true)
-            {
-                hideSprite(watermelon);
-                updatePosition(watermelon, bulletRespawn);
-                wait(1);
-                showSprite(watermelon);
-            }
-            updateScreen();
-        }
-
-        while (gaming == true)
-        {
-            if (cherryPos.x <= -40)
-            {
-                updatePosition(cherry, bulletRespawn);
-            }
-            if (chiliPos.x <= -40)
-            {
-                updatePosition(chili, bulletRespawn);
-            }
-            if (plumPos.x <= -40)
-            {
-                updatePosition(plum, bulletRespawn);
-            }
-            if (carrotPos.x <= -40)
-            {
-                updatePosition(carrot, bulletRespawn);
-            }
-            if (watermelonPos.x <= -40)
-            {
-                updatePosition(watermelon, bulletRespawn);
-            }
-        }
-
-        //Health and Lose Screen
-        bool wasAPressed = isButtonDown(A);
-        int health = 5;
-        if (cherryCollision == true || cherryCollision == true || plumCollision == true || carrotCollision == true || watermelonCollision == true)
-        {
-            health -= 1;
-        }
-        if (health <= 0)
-        {
-            gaming = false;
-            drawBackground(losescreen, origin);
-            drawFilledRectangle(black, box1Pos, box1Size);
-            drawFilledRectangle(black, box2Pos, box2Size);
-            drawHollowRectangle(white, box1Pos, box1Size);
-            drawHollowRectangle(white, box2Pos, box2Size);
-            drawText("FAILED", white, text1Pos);
-            drawText("Press A to start again", white, text2Pos);
-            if (wasAPressed == true)
-            {
-                gaming = true;
-                startGame();
-            }
-        }
-        
     }
 }
-=======
-}
->>>>>>> dc76818abc3f9486cac65adf0af06d75fa955293
