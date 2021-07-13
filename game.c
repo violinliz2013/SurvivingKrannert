@@ -2,7 +2,6 @@
 Sprite mike;
 void startGame()
 {
-    bool gaming = true;
     Color krannertwall = createColor(252, 131, 67);
     Color black = createColor(0, 0, 0);
     Color red = createColor(255, 0, 0);
@@ -36,6 +35,7 @@ void startGame()
     wait(0.5);
     drawText("Go!", black, startTextPos);
     wait(0.5);
+    bool gaming = true;
     drawFilledRectangle(krannertwall, startTextPos, startTextSize);
 }
 int main()
@@ -108,8 +108,10 @@ int main()
         updateScreen();
         if (wasBPressed == true)
         {
-            startGame();
+            gaming = true;
             bulletsDodged = 0;
+            health = 5;
+            startGame();
         }
     }
 
@@ -121,15 +123,15 @@ int main()
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
-        if (isUpPressed == true && mikePos.y > 0)
+        if (isUpPressed == true)
         {
-            mikePos = getPosition(mike);
+            Position mikePos = getPosition(mike);
             mikePos.y -= 1;
             updatePosition(mike, mikePos);
         }
-        if (isDownPressed == true && mikePos.y <= 129)
+        if (isDownPressed == true)
         {
-            mikePos = getPosition(mike);
+            Position mikePos = getPosition(mike);
             mikePos.y += 1;
             updatePosition(mike, mikePos);
         }
@@ -244,20 +246,22 @@ int main()
         }
         if (bulletsDodged == 20)
         {
-            gaming = false;
-            health = 5;
-            bool cherryCollision = false;
-            bool chiliCollision = false;
-            bool plumCollision = false;
-            bool carrotCollision = false;
-            bool watermelonCollision = false;
             drawBackground(winscreen, origin);
-            hideSprite(mike);
             hideSprite(cherry);
             hideSprite(chili);
             hideSprite(plum);
             hideSprite(carrot);
             hideSprite(watermelon);
+            drawText("SUCCESS!", white, text1Pos);
+            while (bulletsDodged == 20)
+            {
+                bool wasAPressed = isButtonDown(A);
+                if (wasAPressed == true)
+                {
+                    health = 5;
+                    startGame();
+                }
+            }
         }
         updateScreen();
     }
