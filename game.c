@@ -34,7 +34,6 @@ void startGame()
     wait(0.5);
     drawText("Go!", black, startTextPos);
     wait(0.5);
-    bool gaming = true;
     drawFilledRectangle(krannertwall, startTextPos, startTextSize);
 }
 int main()
@@ -107,6 +106,7 @@ int main()
         updateScreen();
         if (wasBPressed == true)
         {
+            gaming = true;
             startGame();
         }
     }
@@ -115,7 +115,8 @@ int main()
     Position mikePos = {40, 80};
     bool isUpPressed = false;
     bool isDownPressed = false;
-    while (true)
+    bool wasAPressed = false;
+    while (gaming == true)
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
@@ -218,27 +219,62 @@ int main()
             updatePosition(watermelon, bulletRespawn);
             showSprite(watermelon);
         }
-        if (health <= 0) {
-            drawBackground(losescreen, origin);
-            hideSprite(mike);
-            hideSprite(cherry);
-            hideSprite(chili);
-            hideSprite(plum);
-            hideSprite(carrot);
-            hideSprite(watermelon);
-            drawFilledRectangle(black, box1Pos, box1Size);
-            drawFilledRectangle(black, box2Pos, box2Size);
-            drawHollowRectangle(white, box1Pos, box1Size);
-            drawHollowRectangle(white, box2Pos, box2Size);
-            drawText("FAILED", white, text1Pos);
-            drawText("Press A to try again", white, text2Pos);
-            bool wasAPressed = isButtonDown(A);
+        if (health <= 0)
+        {
+            gaming = false;
+        }
+        if (bulletsDodged >= 20)
+        {
+            gaming = false;
+        }
+        while (gaming == false)
+        {
+            if (health <= 0)
+            {
+                drawBackground(losescreen, origin);
+                hideSprite(mike);
+                hideSprite(cherry);
+                hideSprite(chili);
+                hideSprite(plum);
+                hideSprite(carrot);
+                hideSprite(watermelon);
+                drawFilledRectangle(black, box1Pos, box1Size);
+                drawFilledRectangle(black, box2Pos, box2Size);
+                drawHollowRectangle(white, box1Pos, box1Size);
+                drawHollowRectangle(white, box2Pos, box2Size);
+                drawText("FAILED", white, text1Pos);
+                drawText("Press A to try again", white, text2Pos);
+                health = 1;
+                updateScreen();
+            }
+            if (bulletsDodged >= 20)
+            {
+                drawBackground(winscreen, origin);
+                hideSprite(mike);
+                hideSprite(cherry);
+                hideSprite(chili);
+                hideSprite(plum);
+                hideSprite(carrot);
+                hideSprite(watermelon);
+                drawFilledRectangle(black, box1Pos, box1Size);
+                drawFilledRectangle(black, box2Pos, box2Size);
+                drawHollowRectangle(white, box1Pos, box1Size);
+                drawHollowRectangle(white, box2Pos, box2Size);
+                drawText("SUCCESS", white, text1Pos);
+                drawText("Press A to try again", white, text2Pos);
+                bulletsDodged = 0;
+                updateScreen();
+            }
+            wasAPressed = isButtonDown(A);
+            updateScreen();
             if (wasAPressed == true)
             {
                 health = 5;
+                bulletsDodged = 0;
+                gaming = true;
                 startGame();
             }
         }
-    updateScreen();
+        updateScreen();
     }
 }
