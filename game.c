@@ -2,6 +2,7 @@
 Sprite mike;
 void startGame()
 {
+    bool gaming = true;
     Color krannertwall = createColor(252, 131, 67);
     Color black = createColor(0, 0, 0);
     Color red = createColor(255, 0, 0);
@@ -16,6 +17,7 @@ void startGame()
     drawBackground(krannertHall, origin);
     showSprite(mike);
     updatePosition(mike, mikeStart);
+    int bulletsdodged = 0;
     drawText("Ready?", black, startTextPos);
     wait(1.5);
     drawFilledRectangle(krannertwall, startTextPos, startTextSize);
@@ -34,7 +36,6 @@ void startGame()
     wait(0.5);
     drawText("Go!", black, startTextPos);
     wait(0.5);
-    bool gaming = true;
     drawFilledRectangle(krannertwall, startTextPos, startTextSize);
 }
 int main()
@@ -116,7 +117,7 @@ int main()
     Position mikePos = {40, 80};
     bool isUpPressed = false;
     bool isDownPressed = false;
-    while (true)
+    while (gaming == true)
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
@@ -243,6 +244,7 @@ int main()
         }
         if (bulletsDodged == 20)
         {
+            gaming = false;
             health = 5;
             bool cherryCollision = false;
             bool chiliCollision = false;
@@ -250,20 +252,12 @@ int main()
             bool carrotCollision = false;
             bool watermelonCollision = false;
             drawBackground(winscreen, origin);
+            hideSprite(mike);
             hideSprite(cherry);
-            hideSprite(watermelon);
-            hideSprite(carrot);
-            hideSprite(plum);
             hideSprite(chili);
-            while (wasBPressed == false)
-            {
-                wasBPressed = isButtonDown(B);
-                updateScreen();
-                if (wasBPressed == true)
-                {
-                    startGame();
-                }
-            }
+            hideSprite(plum);
+            hideSprite(carrot);
+            hideSprite(watermelon);
         }
         updateScreen();
     }
