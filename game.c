@@ -119,15 +119,15 @@ int main()
     {
         isUpPressed = isButtonDown(UP);
         isDownPressed = isButtonDown(DOWN);
-        if (isUpPressed == true)
+        if (isUpPressed == true && mikePos.y > 0)
         {
-            Position mikePos = getPosition(mike);
+            mikePos = getPosition(mike);
             mikePos.y -= 1;
             updatePosition(mike, mikePos);
         }
-        if (isDownPressed == true)
+        if (isDownPressed == true && mikePos.y <= 129)
         {
-            Position mikePos = getPosition(mike);
+            mikePos = getPosition(mike);
             mikePos.y += 1;
             updatePosition(mike, mikePos);
         }
