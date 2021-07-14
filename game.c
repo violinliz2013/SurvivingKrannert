@@ -247,7 +247,7 @@ int main()
                 health = 1;
                 updateScreen();
             }
-            if (bulletsDodged >= 35)
+            if (bulletsDodged = 35)
             {
                 drawBackground(winscreen, origin);
                 hideSprite(mike);
@@ -262,6 +262,12 @@ int main()
                 drawHollowRectangle(white, box2Pos, box2Size);
                 drawText("SUCCESS", white, text1Pos);
                 drawText("Press A to try again", white, text2Pos);
+                wait(2);
+                Sprite bob = createSprite("bob", (Size) {16, 16});
+                Position bobPos = {2, 140};
+                updatePosition(bob, bobPos);
+                showSprite(bob);
+                updateScreen(bob, bobPos);
                 bulletsDodged = 0;
                 updateScreen();
             }
