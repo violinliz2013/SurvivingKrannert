@@ -59,6 +59,7 @@ int main()
     Position plumPos = {150, 10};
     Position carrotPos = {100, 120};
     Position watermelonPos = {50, 10};
+    Position bobPos = {2, 140};
     Size spriteSize = {32, 32};
     Size cherrySize = {14, 22};
     Size chiliSize = {23, 19};
@@ -73,6 +74,7 @@ int main()
     Sprite plum = createSprite("plum", plumSize);
     Sprite carrot = createSprite("realcarrot", carrotSize);
     Sprite watermelon = createSprite("watermelon", watermelonSize);
+    Sprite bob = createSprite("bob", (Size) {16, 16});
     Background krannertHall = createBackground("krannerthall");
     Background losescreen = createBackground("losescreen");
     Background pausescreen = createBackground("pausescreen");
@@ -223,7 +225,7 @@ int main()
         {
             gaming = false;
         }
-        if (bulletsDodged >= 20)
+        if (bulletsDodged >= 35)
         {
             gaming = false;
         }
@@ -247,7 +249,7 @@ int main()
                 health = 1;
                 updateScreen();
             }
-            if (bulletsDodged >= 20)
+            if (bulletsDodged >= 35)
             {
                 drawBackground(winscreen, origin);
                 hideSprite(mike);
@@ -262,8 +264,12 @@ int main()
                 drawHollowRectangle(white, box2Pos, box2Size);
                 drawText("SUCCESS", white, text1Pos);
                 drawText("Press A to try again", white, text2Pos);
+                
+                
+                updatePosition(bob, bobPos);
+                showSprite(bob);
                 bulletsDodged = 0;
-                updateScreen();
+                updateScreen(bob, bobPos);
             }
             wasAPressed = isButtonDown(A);
             updateScreen();
@@ -271,6 +277,7 @@ int main()
             {
                 health = 5;
                 bulletsDodged = 0;
+                hideSprite(bob);
                 gaming = true;
                 startGame();
             }
