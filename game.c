@@ -264,8 +264,6 @@ int main()
                 drawHollowRectangle(white, box2Pos, box2Size);
                 drawText("SUCCESS", white, text1Pos);
                 drawText("Press A to try again", white, text2Pos);
-                
-                
                 updatePosition(bob, bobPos);
                 showSprite(bob);
                 bulletsDodged = 0;
